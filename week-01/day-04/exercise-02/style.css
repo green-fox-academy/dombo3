@@ -1,0 +1,42 @@
+body {
+  font-family: sans-serif;
+}
+
+p {
+  font-size: 36px;
+  color: rgb(255,255,255);
+  margin: 0;
+  text-align: center;
+  padding: 43px 0;
+}
+
+.container,
+.box {
+  width: 365px;
+}
+
+.container {
+  height: 512px;
+  border: 16px solid rgb(66,133,244);
+}
+
+.box {
+  height: 128px;
+  position: relative;
+}
+
+.box.one {
+  background-color: rgb(230, 118, 118);
+}
+
+.box.two {
+  background-color: rgb(242, 240, 98);
+}
+
+.box.three {
+  background-color: rgb(169, 230, 230);
+}
+
+.box.four {
+  background-color: rgb(118, 146, 228);
+}

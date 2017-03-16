@@ -1,0 +1,30 @@
+body {
+  font-family: sans-serif;
+}
+
+p {
+  color: rgb(255, 255, 255);
+  font-size: 36px;
+  margin: 0;
+  text-align: center;
+  line-height: 128px;
+}
+
+.container {
+  border: 16px solid rgb(66, 133, 244);
+  margin-top: 5px;
+}
+
+.container,
+.box {
+  height: 256px;
+  width: 348px;
+}
+
+.box.one {
+  background-color: rgb(230, 118, 118);
+}
+
+.box.two {
+  background-color: rgb(169, 230, 230);
+}

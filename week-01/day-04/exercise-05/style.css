@@ -1,0 +1,27 @@
+main {
+  margin-left: 47px;
+  }
+
+h1 {
+  color: rgb(0, 6, 234);
+}
+
+h2 {
+  color: rgb(242, 170, 10);
+}
+
+main > ul {
+  list-style-type: square;
+}
+
+main > ul > li {
+  color: rgb(11, 0, 249);
+}
+
+ul.fruits > li {
+  list-style-type: disc;
+}
+
+ ul.fruits > li:first-child {
+  color: rgb(249, 1, 27);
+}

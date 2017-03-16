@@ -1,0 +1,17 @@
+body {
+  font-family: sans-serif;
+}
+
+.box {
+  background-color: rgb(14, 145, 161);
+  border: 5px solid rgb(125, 206, 148);
+  margin-top: 15px;
+  height: 133px;
+  width: 368px;
+}
+
+.box p {
+  color: rgb(0, 85, 102);
+  margin: 24px 16px;
+  font-size: 36px;
+}
