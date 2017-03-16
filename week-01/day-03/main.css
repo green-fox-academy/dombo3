@@ -1,0 +1,31 @@
+h1 {
+  color: red;
+}
+
+body p {
+  color: purple;
+}
+
+p {
+  color: yellow;
+}
+
+div {
+  color: blue;
+}
+
+h2 {
+  color: pink;
+}
+
+.classtest {
+  color: green;
+}
+
+#test {
+  color: inherit;
+}
+
+#test2 {
+  color: inherit;
+}
