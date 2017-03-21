@@ -8,7 +8,7 @@ public class Bmi {
     double BMI;
 
     BMI = massInKg/(heightInM*heightInM);
-    System.out.println(BMI);
+    System.out.println("My bmi index: " + BMI);
 
   }
 }
