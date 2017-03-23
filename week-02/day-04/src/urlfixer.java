@@ -12,7 +12,8 @@ public class urlfixer {
     // find bots, replace
     url = url.replace("bots","odds");
 
-    //set : to an exact location
+    //set colon to an exact location
+    url = url.substring(0, 5) + ":" + url.substring(5);
 
     System.out.println(url);
   }
