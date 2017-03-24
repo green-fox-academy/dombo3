@@ -59,27 +59,41 @@ public class Anagram {
 
 
     for (int i = 0; i < word1Char.length; i++) {
-      /*System.out.println(word1Char[i]);*/
       abc1.put(word1Char[i], (abc1.get(word1Char[i]) + 1));
     }
 
     for (int i = 0; i < word2Char.length; i++) {
-      /*System.out.println(word2Char[i]);*/
       abc2.put(word2Char[i], (abc2.get(word2Char[i]) + 1));
     }
 
     System.out.println(abc1);
     System.out.println(abc2);
 
+    System.out.println(Arrays.toString(word1Char));
+    System.out.println(Arrays.toString(word2Char));
+
     if (word1.length() != word2.length()) {
       return "Not an anagram";
     } else {
       for (int i = 0; i < word1Char.length; i++) {
-        if (abc1.get(word1Char[i]) != abc2.get(word2Char[i])) {
+        if (abc1.get(word1Char[i]) != abc2.get(word1Char[i])) {
           return "Not an anagram";
         }
       }
     }
+
+    /*
+    // Get a set of the entries
+    Set set = abc1.entrySet();
+
+    // Get an iterator
+    Iterator iterat = set.iterator();
+
+    while(iterat.hasNext()) {
+      Map.Entry me = (Map.Entry)iterat.next();
+      System.out.print(me.getKey() + ": ");
+      System.out.println(me.getValue());
+    }*/
 
     return "Is an Anagram";
   }
