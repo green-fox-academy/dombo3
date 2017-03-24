@@ -16,6 +16,9 @@ public class Anagram {
 
   public static String IsAnagram(String word1, String word2) {
 
+    word1 = word1.toLowerCase();
+    word2 = word2.toLowerCase();
+
     String[] word1Char = word1.split("");
     String[] word2Char = word2.split("");
 
