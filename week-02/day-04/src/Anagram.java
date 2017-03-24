@@ -5,8 +5,16 @@ import java.util.*;
  */
 public class Anagram {
   public static void main(String[] args) {
-    String word1 = "dog";
-    String word2 = "god";
+    Scanner myscanner = new Scanner(System.in);
+    System.out.println("Plese type in your first word: ");
+    String word1 = myscanner.nextLine();
+    System.out.println("Plese type in your second word: ");
+    String word2 = myscanner.nextLine();
+
+    System.out.println(IsAnagram(word1,word2));
+  }
+
+  public static String IsAnagram(String word1, String word2) {
 
     String[] word1Char = word1.split("");
     String[] word2Char = word2.split("");
@@ -43,22 +51,33 @@ public class Anagram {
 
     abc2.putAll(abc1);
 
-    // Get a set of the entries
-    Set set = abc1.entrySet();
-
-    // Get an iterator
-    Iterator i = set.iterator();
-
-    while(i.hasNext()) {
-      Map.Entry me = (Map.Entry)i.next();
-      System.out.print(me.getKey() + ": ");
-      System.out.println(me.getValue());
+    for (int i = 0; i < word1Char.length; i++) {
+      /*System.out.println(word1Char[i]);*/
+      abc1.put(word1Char[i], (abc1.get(word1Char[i]) + 1));
     }
-    System.out.println();
 
-    Integer letter = abc1.get("a");
-    abc1.put("a", 1);
-    System.out.println("a's new balance: " + abc1.get("a"));
+    for (int i = 0; i < word2Char.length; i++) {
+      /*System.out.println(word2Char[i]);*/
+      abc2.put(word2Char[i], (abc2.get(word2Char[i]) + 1));
+    }
+
     System.out.println(abc1);
+    System.out.println(abc2);
+    System.out.println(word1.length());
+    System.out.println(word2.length());
+
+    if (word1.length() != word2.length()) {
+      return "Not an anagram";
+    } else {
+      for (int i = 0; i < word1Char.length; i++) {
+        if (abc1.get(word1Char[i]) != abc2.get(word2Char[i])) {
+          System.out.println(abc1.get(word1Char[i]));
+          System.out.println(abc2.get(word2Char[i]));
+          return "Not an anagram";
+        }
+      }
+    }
+
+    return "Is an Anagram";
   }
 }
