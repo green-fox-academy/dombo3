@@ -19,6 +19,9 @@ public class Anagram {
     String[] word1Char = word1.split("");
     String[] word2Char = word2.split("");
 
+    Arrays.sort(word1Char);
+    Arrays.sort(word2Char);
+
     Map<String, Integer> abc1 = new HashMap<>();
     Map<String, Integer> abc2 = new HashMap<>();
 
@@ -51,6 +54,7 @@ public class Anagram {
 
     abc2.putAll(abc1);
 
+
     for (int i = 0; i < word1Char.length; i++) {
       /*System.out.println(word1Char[i]);*/
       abc1.put(word1Char[i], (abc1.get(word1Char[i]) + 1));
@@ -63,16 +67,12 @@ public class Anagram {
 
     System.out.println(abc1);
     System.out.println(abc2);
-    System.out.println(word1.length());
-    System.out.println(word2.length());
 
     if (word1.length() != word2.length()) {
       return "Not an anagram";
     } else {
       for (int i = 0; i < word1Char.length; i++) {
         if (abc1.get(word1Char[i]) != abc2.get(word2Char[i])) {
-          System.out.println(abc1.get(word1Char[i]));
-          System.out.println(abc2.get(word2Char[i]));
           return "Not an anagram";
         }
       }
