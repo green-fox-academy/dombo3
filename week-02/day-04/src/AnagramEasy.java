@@ -21,6 +21,9 @@ public class AnagramEasy {
 
   public static boolean IsAnagram(String word1, String word2) {
 
+    word1 = word1.toLowerCase();
+    word2 = word2.toLowerCase();
+
     char[] word1Char = word1.toCharArray();
     char[] word2Char = word2.toCharArray();
 
