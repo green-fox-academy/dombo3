@@ -8,10 +8,8 @@ public class CreatePalindrome {
   }
 
   public static String Palindrome(String word) {
-    char[] wordChar = word.toCharArray();
-
-    for (int i = 0; i < wordChar.length; i++) {
-      word = word + wordChar[i];
+    for (int i = (word.length() - 1); i >= 0; i--) {
+      word = word + word.charAt(i);
     }
     return word;
   }
