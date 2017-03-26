@@ -14,7 +14,7 @@ public class reverse {
   public static String reverser(String text) {
     String reversedText = "";
     for (int i = text.length() - 1; i >= 0; i--){
-      reversedText += Character.toString(text.charAt(i));
+      reversedText += text.charAt(i);
   }
     return reversedText;
   }
