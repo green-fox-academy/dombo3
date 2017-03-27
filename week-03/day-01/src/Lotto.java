@@ -45,19 +45,19 @@ public class Lotto {
       }
 
       /*List<Integer> occurences = new ArrayList<>();*/
-
-      String maxKey2 = "";
-      Integer maxValue2 = 0;
-      for (String key : occurence.keySet()) {
-        if(occurence.get(key) > maxValue2) {
-          maxValue2 = occurence.get(key);
-          maxKey2 = key;
+      for (int i = 1; i < 6; i++) {
+        String maxKey = "";
+        Integer maxValue = 0;
+        for (String key : occurence.keySet()) {
+          if (occurence.get(key) > maxValue) {
+            maxValue = occurence.get(key);
+            maxKey = key;
+          }
         }
+        System.out.println(maxValue);
+        System.out.println(maxKey);
+        occurence.remove(maxKey);
       }
-      System.out.println(maxValue2);
-      System.out.println(maxKey2);
-      occurence.remove(maxKey2);
-
 
     }
 
