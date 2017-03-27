@@ -34,7 +34,7 @@ public class Lotto {
         }
       }
 
-      Map<String, Integer> occurence = new HashMap<>();
+      HashMap<String, Integer> occurence = new HashMap<>();
 
       for (int i = 0; i < otosNums.size(); i++){
         if (occurence.containsKey(otosNums.get(i))) {
@@ -44,20 +44,46 @@ public class Lotto {
         }
       }
 
-      System.out.println(occurence);
+      /*List<Integer> occurences = new ArrayList<>();*/
+
+      String maxKey2 = "";
+      Integer maxValue2 = 0;
+      for (String key : occurence.keySet()) {
+        if(occurence.get(key) > maxValue2) {
+          maxValue2 = occurence.get(key);
+          maxKey2 = key;
+        }
+      }
+      System.out.println(maxValue2);
+      System.out.println(maxKey2);
+      occurence.remove(maxKey2);
 
 
+    }
 
-
-
-      System.out.println(otosNums);
-
-
-
-    } catch (Exception e) {
+    catch (Exception e) {
       System.out.println("Error happened: " + e.getClass());
     }
 
-
   }
+
+ /* public static HashMap maxValues(HashMap occurenceFinal){
+    System.out.println(occurenceFinal);
+    Object maxKey = "";
+    Object maxValue = 0;
+    for (Object key : occurenceFinal.keySet()) {
+      if(occurenceFinal.get(key) > maxValue) {
+        maxValue = occurenceFinal.get(key);
+        maxKey = key;
+      }
+    }
+    System.out.println(maxValue);
+    System.out.println(maxKey);
+    occurenceFinal.remove(maxKey);
+    return occurenceFinal;
+  }*/
+
+
 }
+
+
