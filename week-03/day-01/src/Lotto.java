@@ -1,6 +1,3 @@
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -57,32 +54,12 @@ public class Lotto {
         System.out.println("Occurence (value): " + maxValue);
         occurence.remove(maxKey);
       }
-
     }
 
     catch (Exception e) {
       System.out.println("Error happened: " + e.getClass());
     }
-
   }
-
- /* public static HashMap maxValues(HashMap occurenceFinal){
-    System.out.println(occurenceFinal);
-    Object maxKey = "";
-    Object maxValue = 0;
-    for (Object key : occurenceFinal.keySet()) {
-      if(occurenceFinal.get(key) > maxValue) {
-        maxValue = occurenceFinal.get(key);
-        maxKey = key;
-      }
-    }
-    System.out.println(maxValue);
-    System.out.println(maxKey);
-    occurenceFinal.remove(maxKey);
-    return occurenceFinal;
-  }*/
-
-
 }
 
 
