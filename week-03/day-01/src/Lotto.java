@@ -44,7 +44,6 @@ public class Lotto {
         }
       }
 
-      /*List<Integer> occurences = new ArrayList<>();*/
       for (int i = 1; i < 6; i++) {
         String maxKey = "";
         Integer maxValue = 0;
@@ -54,8 +53,8 @@ public class Lotto {
             maxKey = key;
           }
         }
-        System.out.println(maxValue);
-        System.out.println(maxKey);
+        System.out.println("Lotto Number (key): " + maxKey);
+        System.out.println("Occurence (value): " + maxValue);
         occurence.remove(maxKey);
       }
 
