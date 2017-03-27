@@ -31,8 +31,10 @@ public class Lotto {
 
       for (int i = 0; i < otos.size(); i++) {
         String[] nums = otos.get(i).split(";");
-        System.out.println(Arrays.toString(nums));
+        for (int j = 0; j < 5; j++){
+          otosNums.add(nums[j]);
         }
+      }
 
       System.out.println(otosNums);
 
