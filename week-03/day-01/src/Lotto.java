@@ -4,9 +4,7 @@ import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by user on 2017.03.27..
@@ -35,6 +33,20 @@ public class Lotto {
           otosNums.add(nums[j]);
         }
       }
+
+      Map<String, Integer> occurence = new HashMap<>();
+
+      for (int i = 0; i < otosNums.size(); i++){
+        if (occurence.containsKey(otosNums.get(i))) {
+          System.out.println("I am in");
+        } else {
+          occurence.put(otosNums.get(i),1);
+        }
+      }
+
+
+
+
 
       System.out.println(otosNums);
 
