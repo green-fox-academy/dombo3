@@ -1,9 +1,11 @@
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,15 +20,21 @@ public class Lotto {
         line.substring(line.lastIndexOf("Ft") + 3);
       }
 
-      ArrayList<String> otos = new ArrayList<String>();
+      ArrayList<String> otos = new ArrayList<>();
 
       for (int i = 0; i < lines.size(); i++) {
-        String hi = lines.get(i).substring(lines.get(i).lastIndexOf("Ft") + 3);
-        otos.add(hi);
+        String Otos = lines.get(i).substring(lines.get(i).lastIndexOf("Ft") + 3);
+        otos.add(Otos);
       }
-      
 
-      System.out.println(otos);
+      ArrayList<String> otosNums = new ArrayList<>();
+
+      for (int i = 0; i < otos.size(); i++) {
+        String[] nums = otos.get(i).split(";");
+        System.out.println(Arrays.toString(nums));
+        }
+
+      System.out.println(otosNums);
 
 
 
