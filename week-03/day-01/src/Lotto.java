@@ -38,11 +38,13 @@ public class Lotto {
 
       for (int i = 0; i < otosNums.size(); i++){
         if (occurence.containsKey(otosNums.get(i))) {
-          System.out.println("I am in");
+          occurence.put(otosNums.get(i), occurence.get(otosNums.get(i)) + 1);
         } else {
           occurence.put(otosNums.get(i),1);
         }
       }
+
+      System.out.println(occurence);
 
 
 
