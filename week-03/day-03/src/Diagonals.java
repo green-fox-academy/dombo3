@@ -5,16 +5,17 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Diagonals {
 
+  public static final int WIDTH = 300;
+  public static final int HEIGHT = 300;
+
   public static void mainDraw(Graphics graphics) {
-    // draw the canvas' diagonals in green.
-
-
-
+    graphics.setColor(Color.GREEN);
+    graphics.drawLine(0,HEIGHT, WIDTH, 0);
   }
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
-    jFrame.setSize(new Dimension(300, 300));
+    jFrame.setSize(new Dimension(WIDTH, HEIGHT));
     jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     jFrame.add(new ImagePanel());
     jFrame.setLocationRelativeTo(null);
