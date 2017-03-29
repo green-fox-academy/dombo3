@@ -9,11 +9,14 @@ public class PositionSquare {
   public static final int HEIGHT = 300;
 
   public static void mainDraw(Graphics graphics) {
+    drawSquare(30,40, graphics);
+    drawSquare(60,70, graphics);
+    drawSquare(30,20, graphics);
 
   }
 
-  public static void myFunction(Graphics graphics) {
-
+  public static void drawSquare(int x, int y, Graphics graphics) {
+    graphics.drawRect(x,y,50,50);
   }
 
   public static void main(String[] args) {
