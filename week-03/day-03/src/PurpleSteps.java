@@ -10,15 +10,17 @@ public class PurpleSteps {
 
   public static void mainDraw(Graphics graphics) {
     Graphics2D g2d = (Graphics2D) graphics;
-    g2d.setColor(Color.RED);
-    g2d.fillRect(20,20,50,50);
-    g2d.setColor(Color.BLACK);
-    g2d.setStroke(new BasicStroke(2));
-    g2d.drawRect(20,20,50,50);
-
+    int size = 22;
+    for (int i = 0; i < 300; i+=size){
+      g2d.setColor(Color.RED);
+      g2d.fillRect(20 +i ,20+i,size,size);
+      g2d.setColor(Color.BLACK);
+      g2d.setStroke(new BasicStroke(2));
+      g2d.drawRect(20+i,20+i,size,size);
+    }
   }
 
-  public static void myFunction(Graphics graphics) {
+  public static void drawSteps(Graphics graphics) {
 
   }
 
