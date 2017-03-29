@@ -14,7 +14,9 @@ public class ConnectTheDots {
     int[][] Unknown = {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70}, {120, 100}, {85, 130},
             {50, 100}};
 
+    graphics.setColor(Color.RED);
     drawDots(Box, graphics);
+    graphics.setColor(new Color(0x5ABE25));
     drawDots(Unknown, graphics);
   }
 
@@ -34,6 +36,7 @@ public class ConnectTheDots {
     int[] yPoints = convertIntegers(yPointsList);
 
     graphics.drawPolygon(xPoints,yPoints,nPoints);
+    graphics.fillPolygon(xPoints,yPoints,nPoints);
   }
 
   public static int[] convertIntegers (ArrayList<Integer> integers) {
