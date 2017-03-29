@@ -9,19 +9,18 @@ public class PurpleSteps {
   public static final int HEIGHT = 300;
 
   public static void mainDraw(Graphics graphics) {
-    Graphics2D g2d = (Graphics2D) graphics;
-    int size = 22;
-    for (int i = 0; i < 300; i+=size){
-      g2d.setColor(Color.RED);
-      g2d.fillRect(20 +i ,20+i,size,size);
-      g2d.setColor(Color.BLACK);
-      g2d.setStroke(new BasicStroke(2));
-      g2d.drawRect(20+i,20+i,size,size);
-    }
+    drawSteps(30,graphics);
   }
 
-  public static void drawSteps(Graphics graphics) {
-
+  public static void drawSteps(int squareSize, Graphics graphics) {
+    Graphics2D g2d = (Graphics2D) graphics;
+    for (int i = 0; i < 300; i+=squareSize){
+      g2d.setColor(Color.RED);
+      g2d.fillRect(0 +i ,0+i,squareSize,squareSize);
+      g2d.setColor(Color.BLACK);
+      g2d.setStroke(new BasicStroke(0));
+      g2d.drawRect(0+i,0+i,squareSize,squareSize);
+    }
   }
 
   public static void main(String[] args) {
