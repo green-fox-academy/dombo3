@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
@@ -11,23 +10,30 @@ public class ConnectTheDots {
   public static final int HEIGHT = 300;
 
   public static void mainDraw(Graphics graphics) {
-    int[][] dotPairs = {{10, 10}, {290,  10}, {290, 290}, {10, 290}};
+    int[][] Box = {{10, 10}, {290,  10}, {290, 290}, {10, 290}};
+    int[][] Unknown = {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70}, {120, 100}, {85, 130},
+            {50, 100}};
+
+    drawDots(Box, graphics);
+    drawDots(Unknown, graphics);
+  }
+
+  public static void drawDots(int[][] dotPairs, Graphics graphics) {
+
     ArrayList<Integer> xPointsList = new ArrayList<>();
     ArrayList<Integer> yPointsList = new ArrayList<>();
+
     int nPoints = dotPairs.length;
 
     for (int i = 0; i < dotPairs.length; i++){
-        xPointsList.add(dotPairs[i][0]);
-        yPointsList.add(dotPairs[i][1]);
-      }
+      xPointsList.add(dotPairs[i][0]);
+      yPointsList.add(dotPairs[i][1]);
+    }
 
     int[] xPoints = convertIntegers(xPointsList);
     int[] yPoints = convertIntegers(yPointsList);
 
-    System.out.println(Arrays.toString(xPoints));
-    System.out.println(Arrays.toString(yPoints));
-
-    /*graphics.drawPolygon()*/;
+    graphics.drawPolygon(xPoints,yPoints,nPoints);
   }
 
   public static int[] convertIntegers (ArrayList<Integer> integers) {
