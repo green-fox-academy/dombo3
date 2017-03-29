@@ -11,6 +11,7 @@ public class Diagonals {
   public static void mainDraw(Graphics graphics) {
     graphics.setColor(Color.GREEN);
     graphics.drawLine(0,HEIGHT, WIDTH, 0);
+    graphics.drawLine(0, 0, WIDTH, HEIGHT);
   }
 
   public static void main(String[] args) {
