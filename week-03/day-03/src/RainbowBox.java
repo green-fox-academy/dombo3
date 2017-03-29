@@ -9,11 +9,13 @@ public class RainbowBox {
   public static final int HEIGHT = 300;
 
   public static void mainDraw(Graphics graphics) {
-
+    centerBox(30, graphics);
+    centerBox(60, graphics);
+    centerBox(90, graphics);
   }
 
-  public static void myFunction(Graphics graphics) {
-
+  public static void centerBox(int size, Graphics graphics) {
+    graphics.drawRect(WIDTH/2 - size/2,HEIGHT/2 - size/2, size, size);
   }
 
   public static void main(String[] args) {
