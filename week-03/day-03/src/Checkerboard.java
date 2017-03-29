@@ -9,7 +9,17 @@ public class Checkerboard {
   public static final int HEIGHT = 300;
 
   public static void mainDraw(Graphics graphics) {
-
+    int cubeSize = 30;
+    for (int i = 0; i < WIDTH/cubeSize; i ++){
+      for (int j = 0; j < HEIGHT/cubeSize; j++) {
+        if (j % 2 == 0) {
+          graphics.setColor(Color.BLACK);
+        } else {
+          graphics.setColor(Color.WHITE);
+        }
+        graphics.fillRect(i*cubeSize,j*cubeSize,cubeSize,cubeSize);
+      }
+    }
   }
 
   public static void main(String[] args) {
