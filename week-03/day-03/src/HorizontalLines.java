@@ -9,11 +9,13 @@ public class HorizontalLines {
   public static final int HEIGHT = 300;
 
   public static void mainDraw(Graphics graphics) {
-
+    lineHorizontal(200,150, graphics);
+    lineHorizontal(20,130, graphics);
+    lineHorizontal(50,50, graphics);
   }
 
   public static void lineHorizontal(int x, int y, Graphics graphics) {
-  
+    graphics.drawLine(x,y,x+50, y);
   }
 
   public static void main(String[] args) {
