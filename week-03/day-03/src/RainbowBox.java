@@ -9,13 +9,35 @@ public class RainbowBox {
   public static final int HEIGHT = 300;
 
   public static void mainDraw(Graphics graphics) {
-    centerBox(30, graphics);
-    centerBox(60, graphics);
-    centerBox(90, graphics);
+    centerBox(30, getRainbowColor(), graphics);
   }
 
-  public static void centerBox(int size, Graphics graphics) {
-    graphics.drawRect(WIDTH/2 - size/2,HEIGHT/2 - size/2, size, size);
+  public static void centerBox(int size, int color, Graphics graphics) {
+    graphics.setColor(new Color(color));
+    graphics.fillRect(WIDTH/2 - size/2,HEIGHT/2 - size/2, size, size);
+  }
+
+  public static int getRainbowColor() {
+    int numToSeven = (int) (Math.random()*8);
+    int color = 0x000000;
+    switch (numToSeven) {
+      case 1:
+        return color = 0xFF0000;
+      case 2:
+        return color = 0xFF7F00;
+      case 3:
+        return color = 0xFFFF00;
+      case 4:
+        return color = 0x00FF00;
+      case 5:
+        return color = 0x0000FF;
+      case 6:
+        return color = 0x4B0082;
+      case 7:
+        return color = 0x9400D3;
+      default:
+        return color = 0xFF0000;
+    }
   }
 
   public static void main(String[] args) {
