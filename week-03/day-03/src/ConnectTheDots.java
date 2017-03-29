@@ -21,13 +21,22 @@ public class ConnectTheDots {
         yPointsList.add(dotPairs[i][1]);
       }
 
-    System.out.println(xPointsList);
-    System.out.println(yPointsList);
+    int[] xPoints = convertIntegers(xPointsList);
+    int[] yPoints = convertIntegers(yPointsList);
 
+    System.out.println(Arrays.toString(xPoints));
+    System.out.println(Arrays.toString(yPoints));
 
     /*graphics.drawPolygon()*/;
   }
 
+  public static int[] convertIntegers (ArrayList<Integer> integers) {
+    int[] ret = new int[integers.size()];
+    for (int i = 0; i < ret.length; i++) {
+      ret[i] = integers.get(i).intValue();
+    }
+    return ret;
+  }
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
