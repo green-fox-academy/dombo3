@@ -9,19 +9,14 @@ public class RainbowBox {
   public static final int HEIGHT = 300;
 
   public static void mainDraw(Graphics graphics) {
-    for (int i = 0; i < 100; i++){
-      centerBox(getSize(), getRainbowColor(), graphics);
+    for (int i = 10; i >= 0; i--) {
+      centerBox(30*i, getRainbowColor(), graphics);
     }
   }
 
   public static void centerBox(int size, int color, Graphics graphics) {
     graphics.setColor(new Color(color));
     graphics.fillRect(WIDTH/2 - size/2,HEIGHT/2 - size/2, size, size);
-  }
-
-  public static int getSize() {
-    int size = (int) ((Math.random()*10 + 1) *30);
-    return size;
   }
 
   public static int getRainbowColor() {
