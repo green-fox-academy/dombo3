@@ -9,13 +9,24 @@ public class Checkerboard {
   public static final int HEIGHT = 300;
 
   public static void mainDraw(Graphics graphics) {
-    int cubeSize = 30;
+    drawChess(40, graphics);
+  }
+
+  public static void drawChess(int cubeSize, Graphics graphics) {
     for (int i = 0; i < WIDTH/cubeSize; i ++){
       for (int j = 0; j < HEIGHT/cubeSize; j++) {
-        if (j % 2 == 0) {
-          graphics.setColor(Color.BLACK);
+        if (i % 2 == 0) {
+          if (j % 2 == 0) {
+            graphics.setColor(Color.BLACK);
+          } else {
+            graphics.setColor(Color.WHITE);
+          }
         } else {
-          graphics.setColor(Color.WHITE);
+          if (j % 2 == 0) {
+            graphics.setColor(Color.WHITE);
+          } else {
+            graphics.setColor(Color.BLACK);
+          }
         }
         graphics.fillRect(i*cubeSize,j*cubeSize,cubeSize,cubeSize);
       }
