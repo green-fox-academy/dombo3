@@ -9,7 +9,13 @@ public class CenteredSquare {
   public static final int HEIGHT = 300;
 
   public static void mainDraw(Graphics graphics) {
+    drawCanvas(graphics);
+    graphics.drawRect(WIDTH/2, HEIGHT/2, 10,10);
+  }
 
+  public static void drawCanvas(Graphics graphics) {
+    graphics.setColor(Color.RED);
+    graphics.drawRect(0,0,WIDTH, HEIGHT);
   }
 
     public static void main(String[] args) {
