@@ -3,7 +3,7 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class BoilerPlate {
+public class Triangle {
 
   public static final int WIDTH = 300;
   public static final int HEIGHT = 300;
