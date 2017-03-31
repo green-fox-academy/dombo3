@@ -17,14 +17,40 @@ public class Triangles {
   }
 
   public static void drawPattern(Graphics graphics) {
-    drawTriangle(graphics);
+    drawTriangle(0,0, 300, graphics);
   }
 
-  public static void drawTriangle(Graphics graphics) {
-    int[] posx = {0,300,300/2};
-    int[] posy = {0,0,300};
-    graphics.drawPolygon(posx, posy, 3);
-    
+  public static void drawTriangle(int posx, int posy, int size, Graphics graphics) {
+    int[] arrayX = new int[3];
+    int[] arrayY = new int[3];
+    arrayX[0] = posx;
+    arrayX[1] = posx + size;
+    arrayX[2] = posx + size/2;
+    arrayY[0] = posy;
+    arrayY[1] = posy;
+    arrayY[2] = posy + size;
+    graphics.drawPolygon(arrayX, arrayY, 3);
+    arrayX[0] = posx;
+    arrayX[1] = posx + size/2;
+    arrayX[2] = posx + size/4;
+    arrayY[0] = posy;
+    arrayY[1] = posy;
+    arrayY[2] = posy + size/2;
+    graphics.drawPolygon(arrayX, arrayY, 3);
+    arrayX[0] = posx + size/2;
+    arrayX[1] = posx + size;
+    arrayX[2] = posx + 3*size/4;
+    arrayY[0] = posy;
+    arrayY[1] = posy;
+    arrayY[2] = posy + size/2;
+    graphics.drawPolygon(arrayX, arrayY, 3);
+    arrayX[0] = posx + size/4;
+    arrayX[1] = posx + 3*size/4;
+    arrayX[2] = posx + size/2;
+    arrayY[0] = posy + size/2;
+    arrayY[1] = posy + size/2;
+    arrayY[2] = posy + size;
+    graphics.drawPolygon(arrayX, arrayY, 3);
   }
 
   public static void main(String[] args) {
