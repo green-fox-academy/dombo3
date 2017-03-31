@@ -10,15 +10,17 @@ public class Triangles {
   public static final int HEIGHT = 300;
 
   public static void mainDraw(Graphics graphics) {
-
+    drawPattern(graphics);
   }
 
-  public static void drawPattern(int posx, int posy, int size, Graphics graphics) {
-
+  public static void drawPattern(Graphics graphics) {
+    drawTriangle(graphics);
   }
 
-  public static void drawTriangle() {
-
+  public static void drawTriangle(Graphics graphics) {
+    graphics.drawLine(0,0,300,0);
+    graphics.drawLine(300, 0, 300/2, 300);
+    graphics.drawLine(300/2,300,0,0);
   }
 
   public static void main(String[] args) {
@@ -34,7 +36,7 @@ public class Triangles {
     @Override
     protected void paintComponent(Graphics graphics) {
       super.paintComponent(graphics);
-      this.setBackground(Color.YELLOW);
+      this.setBackground(Color.WHITE);
       mainDraw(graphics);
     }
   }
