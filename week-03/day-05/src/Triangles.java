@@ -21,9 +21,10 @@ public class Triangles {
   }
 
   public static void drawTriangle(Graphics graphics) {
-    graphics.drawLine(0,0,300,0);
-    graphics.drawLine(300, 0, 300/2, 300);
-    graphics.drawLine(300/2,300,0,0);
+    int[] posx = {0,300,300/2};
+    int[] posy = {0,0,300};
+    graphics.drawPolygon(posx, posy, 3);
+    
   }
 
   public static void main(String[] args) {
