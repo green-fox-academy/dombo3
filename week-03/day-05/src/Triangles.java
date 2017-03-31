@@ -1,13 +1,16 @@
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Triangles {
 
-  public static final int WIDTH = 300;
-  public static final int HEIGHT = 300;
+  public static final int WIDTH = 316;
+  public static final int HEIGHT = 338;
 
   public static void mainDraw(Graphics graphics) {
     drawPattern(graphics);
@@ -30,6 +33,8 @@ public class Triangles {
     jFrame.add(new ImagePanel());
     jFrame.setLocationRelativeTo(null);
     jFrame.setVisible(true);
+    SavePaint(jFrame);
+
   }
 
   static class ImagePanel extends JPanel {
@@ -40,4 +45,16 @@ public class Triangles {
       mainDraw(graphics);
     }
   }
+
+  public static void SavePaint(JFrame jFrame) {
+    try {
+      BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+      Graphics2D graphics2D = image.createGraphics();
+      jFrame.paint(graphics2D);
+      ImageIO.write(image,"jpeg", new File("jmemTriangle.jpeg"));
+    } catch(Exception exception) {
+      System.out.println("Exception occured: " + exception.getClass());
+    }
+  }
+
 }
