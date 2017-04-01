@@ -12,16 +12,7 @@ public class Doubled {
   public static void main(String[] args) {
     List<String> lines = readFileLines();
     List<StringBuilder> decryptedText = decrypter(lines);
-    String message = "Start hacking";
-    String dots = "...";
-    String matrix =
-            "\n100010011110000000010101011111100010101101100010001001000111" +
-            "\n010001001000010001001111111110010000101100101000000111101100" +
-            "\n010101101100100101101011010101010101011010101010110000011111" +
-            "\n111111001010100001110101000101000110101011100110101011100010\n";
-    slowPrint(message, 400);
-    slowPrint(dots, 500);
-    slowPrint(matrix, 50);
+    coolStuff();
     writeFileLines(decryptedText);
   }
 
@@ -59,6 +50,19 @@ public class Doubled {
     }
     System.out.println("File is loaded");
     return lines;
+  }
+
+  public static void coolStuff() {
+    String message = "Start hacking";
+    String dots = "...";
+    String matrix =
+            "\n100010011110000000010101011111100010101101100010001001000111" +
+                    "\n010001001000010001001111111110010000101100101000000111101100" +
+                    "\n010101101100100101101011010101010101011010101010110000011111" +
+                    "\n111111001010100001110101000101000110101011100110101011100010\n";
+    slowPrint(message, 400);
+    slowPrint(dots, 500);
+    slowPrint(matrix, 50);
   }
 
   public static void slowPrint(String message, long millisPerChar) {
