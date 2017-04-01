@@ -10,11 +10,10 @@ public class taskString2 {
       return "";
     } else {
       if (wordX.charAt(0) == 'x') {
-        result = removeX(wordX.substring(1));
+        return removeX(wordX.substring(1));
       } else {
-        result = wordX.charAt(0) + removeX(wordX.substring(1));
+        return wordX.charAt(0) + removeX(wordX.substring(1));
       }
-      return result;
     }
   }
 }
