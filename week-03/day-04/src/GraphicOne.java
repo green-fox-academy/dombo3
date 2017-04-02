@@ -26,7 +26,6 @@ public class GraphicOne {
       drawPattern(posx + 2*size/3,posy + size/3, size/3, graphics);
       drawPattern(posx + size/3,posy + 2 * size/3, size/3, graphics);
       drawPattern(posx,posy + size/3, size/3, graphics);
-//      times--;
     }
   }
 
