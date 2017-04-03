@@ -1,4 +1,3 @@
-
 public class Station {
   int gasAmount = 1000;
 
@@ -15,6 +14,5 @@ public class Station {
 
     System.out.println(car.gasAmount);
     System.out.println(petrolStation.gasAmount);
-
   }
 }
