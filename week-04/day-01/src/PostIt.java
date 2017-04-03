@@ -5,4 +5,10 @@ public class PostIt {
 
   PostIt(){
   }
+
+  PostIt(String backgroungColor, String text, String textColor){
+    this.backgroundColor = backgroungColor;
+    this.text = text;
+    this.textColor = textColor;
+  }
 }

@@ -14,5 +14,10 @@ public class PostIts {
     yellow.backgroundColor = "YELLOW";
     yellow.text = "Superb!";
     yellow.textColor = "GREEN";
+
+    orange = new PostIt("Orange", "Idea1", "BLUE");
+    pink = new PostIt("PINK", "Awesome", "BLACK");
+    yellow = new PostIt("YELLOW", "Superb!", "GREEN");
+
   }
 }
