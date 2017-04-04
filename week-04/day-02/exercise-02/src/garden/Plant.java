@@ -9,11 +9,15 @@ public class Plant {
     this.absorbRate = absorbRate;
   }
 
-  public void getCurrentWater() {
-    System.out.println(currentWater);
+  public int getCurrentWater() {
+    return currentWater;
   }
 
   public void getAbsorbRate() {
     System.out.println(absorbRate);
+  }
+
+  public void setCurrentWater(int currentWater) {
+    this.currentWater = currentWater;
   }
 }
