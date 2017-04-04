@@ -4,11 +4,13 @@ public class Plant {
   private int currentWater;
   private String name;
   private int absorbRate;
+  private int thirstyLine;
 
-  public Plant(int currentWater, String name, int absorbRate){
+  public Plant(int currentWater, String name, int absorbRate, int thirstyLine){
     this.currentWater = currentWater;
     this.name = name;
     this.absorbRate = absorbRate;
+    this.thirstyLine = thirstyLine;
   }
 
   public int getCurrentWater() {
@@ -21,6 +23,10 @@ public class Plant {
 
   public String getName() {
     return name;
+  }
+
+  public int getThirstyLine() {
+    return thirstyLine;
   }
 
   public int getAbsorbRate() {
