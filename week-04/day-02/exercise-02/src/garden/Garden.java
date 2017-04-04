@@ -64,4 +64,23 @@ public class Garden {
 
     System.out.println("Watering with " + waterAmount + "!");
   }
+
+  public void look() {
+    for (Tree tree : trees) {
+      if (tree.currentWater < 10) {
+        System.out.println("The " + tree.getName() + " Tree does need water.");
+      } else {
+        System.out.println("The " + tree.getName() + " Tree doesn't need water.");
+      }
+    }
+
+    for (Flower flower : flowers) {
+      if (flower.currentWater < 5) {
+        System.out.println("The " + flower.getName() + " Tree does need water.");
+      } else {
+        System.out.println("The " + flower.getName() + " Tree doesn't need water.");
+      }
+    }
+
+  }
 }
