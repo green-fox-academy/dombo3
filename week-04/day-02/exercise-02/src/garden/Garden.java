@@ -33,23 +33,28 @@ public class Garden {
 
   public int checkTrees() {
     int treeNeedWater = 0;
-    for (int i = 0; i < flowers.size(); i++) {
-      if (flowers.get(i).currentWater < 10) {
+    for (int i = 0; i < trees.size(); i++) {
+      if (trees.get(i).currentWater < 10) {
         treeNeedWater += 1;
       }
     }
     return treeNeedWater;
   }
 
-
-  public int irrigate(int waterAmount){
+  public int waterAmount(int waterAmount){
     int plantNeedWater = checkFlowers() + checkTrees();
+    int waterAmountPerPlant = 0;
     if (plantNeedWater == 0) {
       System.out.println("No plant needs water!");
     } else {
-      waterAmount = waterAmount/plantNeedWater;
+      waterAmountPerPlant = waterAmount/plantNeedWater;
+      System.out.println("Watering with " + waterAmount + "!");
     }
 
-    return waterAmount;
+    return waterAmountPerPlant;
+  }
+
+  public void irrigate(int waterAmount) {
+    }
   }
 }
