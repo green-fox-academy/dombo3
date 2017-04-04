@@ -4,16 +4,9 @@ public class FarmGame {
     farm.slots();
     farm.breed();
     farm.breed();
-    farm.breed();
-    farm.breed();
-    farm.breed();
-    farm.breed();
-    farm.breed();
-    farm.breed();
-    farm.breed();
-    farm.breed();
     farm.slots();
     farm.slaughter();
     farm.slots();
+
   }
 }

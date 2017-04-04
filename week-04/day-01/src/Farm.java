@@ -16,7 +16,7 @@ public class Farm {
 
   public void breed() {
     if (counter < 10) {
-      this.farm.add(new Animal());
+      farm.add(new Animal());
       counter += 1;
     } else {
       System.out.println("I am sorry, your farm is full.");
@@ -24,17 +24,13 @@ public class Farm {
   }
 
   public void slaughter() {
-    int minHunnger = 50;
-    for (int i = 0; i < farm.size(); i++){
-      if (farm.get(i).hunger < minHunnger) {
-        minHunnger = farm.get(i).hunger;
+    int indexHunnger = 0;
+    for (int i = 1; i < farm.size(); i++){
+      if (farm.get(i).hunger > farm.get(indexHunnger).hunger) {
+        indexHunnger = i;
       }
     }
-    for (int i = 0; i < farm.size(); i++){
-      if (farm.get(i).hunger == minHunnger){
-        farm.remove(i);
-      }
-    }
-    counter -= 1;
+      farm.remove(indexHunnger);
+      counter -= 1;
   }
 }
