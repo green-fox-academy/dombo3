@@ -10,9 +10,11 @@ public class GardenApp {
     Plant purple = new Tree(40, 40);
     Plant orange = new Tree(30, 40);
 
-    yellow.getCurrentWater();
-    blue.getAbsorbRate();
-    purple.getCurrentWater();
-    orange.getAbsorbRate();
+    myGarden.addFlower((Flower) yellow);
+    myGarden.addFlower((Flower) blue);
+    myGarden.addTree((Tree) purple);
+    myGarden.addTree((Tree) orange);
+
+    myGarden.irrigate(40);
   }
 }
