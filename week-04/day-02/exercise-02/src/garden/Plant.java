@@ -1,22 +1,18 @@
 package garden;
 
 public class Plant {
-  int currentWater;
-  int absorbRate;
-  String name;
+  private int currentWater;
+  private String name;
+  private int absorbRate;
 
-  public Plant(int currentWater, int absorbRate, String name){
+  public Plant(int currentWater, String name, int absorbRate){
     this.currentWater = currentWater;
-    this.absorbRate = absorbRate;
     this.name = name;
+    this.absorbRate = absorbRate;
   }
 
   public int getCurrentWater() {
     return currentWater;
-  }
-
-  public void getAbsorbRate() {
-    System.out.println(absorbRate);
   }
 
   public void setCurrentWater(int currentWater) {
@@ -25,6 +21,10 @@ public class Plant {
 
   public String getName() {
     return name;
+  }
+
+  public int getAbsorbRate() {
+    return absorbRate;
   }
 }
 
