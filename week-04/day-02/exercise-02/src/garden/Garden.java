@@ -24,7 +24,7 @@ public class Garden {
   public List<Integer> checkFlowers() {
     List<Integer> flowersNeedsWater = new ArrayList<>();
     for (int i = 0; i < flowers.size(); i++) {
-      if (flowers.get(i).currentWater < 5) {
+      if (flowers.get(i).getCurrentWater() < 5) {
         flowersNeedsWater.add(i);
       }
     }
@@ -34,7 +34,7 @@ public class Garden {
   public List<Integer> checkTrees() {
     List<Integer> treesNeedsWater = new ArrayList<>();
     for (int i = 0; i < trees.size(); i++) {
-      if (trees.get(i).currentWater < 10) {
+      if (trees.get(i).getCurrentWater() < 10) {
         treesNeedsWater.add(i);
       }
     }
@@ -67,7 +67,7 @@ public class Garden {
 
   public void look() {
     for (Tree tree : trees) {
-      if (tree.currentWater < 10) {
+      if (tree.getCurrentWater() < 10) {
         System.out.println("The " + tree.getName() + " Tree does need water.");
       } else {
         System.out.println("The " + tree.getName() + " Tree doesn't need water.");
@@ -75,10 +75,10 @@ public class Garden {
     }
 
     for (Flower flower : flowers) {
-      if (flower.currentWater < 5) {
-        System.out.println("The " + flower.getName() + " Tree does need water.");
+      if (flower.getCurrentWater() < 5) {
+        System.out.println("The " + flower.getName() + " Flower does need water.");
       } else {
-        System.out.println("The " + flower.getName() + " Tree doesn't need water.");
+        System.out.println("The " + flower.getName() + " Flower doesn't need water.");
       }
     }
 
