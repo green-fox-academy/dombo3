@@ -7,8 +7,8 @@ public class GardenApp {
 
     Plant yellow = new Flower(25,75, "yellow");
     Plant blue = new Flower(3,75, "blue");
-    Plant purple = new Tree(9, 40, "purple");
-    Plant orange = new Tree(30, 40, "orange");
+    Plant purple = new Tree(9, "purple");
+    Plant orange = new Tree(30, "orange");
 
     myGarden.addFlower((Flower) yellow);
     myGarden.addFlower((Flower) blue);
