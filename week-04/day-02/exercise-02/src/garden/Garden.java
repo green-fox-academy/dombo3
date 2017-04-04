@@ -21,40 +21,47 @@ public class Garden {
     trees.add(tree);
   }
 
-  public int checkFlowers() {
-    int flowerNeedWater = 0;
+  public List<Integer> checkFlowers() {
+    List<Integer> flowersNeedsWater = new ArrayList<>();
     for (int i = 0; i < flowers.size(); i++) {
       if (flowers.get(i).currentWater < 5) {
-        flowerNeedWater += 1;
+        flowersNeedsWater.add(i);
       }
     }
-    return flowerNeedWater;
+    return flowersNeedsWater;
   }
 
-  public int checkTrees() {
-    int treeNeedWater = 0;
+  public List<Integer> checkTrees() {
+    List<Integer> treesNeedsWater = new ArrayList<>();
     for (int i = 0; i < trees.size(); i++) {
       if (trees.get(i).currentWater < 10) {
-        treeNeedWater += 1;
+        treesNeedsWater.add(i);
       }
     }
-    return treeNeedWater;
+    return treesNeedsWater;
   }
 
-  public int waterAmount(int waterAmount){
-    int plantNeedWater = checkFlowers() + checkTrees();
+  public int waterAmountPerPlant(int waterAmount){
+    int plantNeedWater = checkFlowers().size() + checkTrees().size();
     int waterAmountPerPlant = 0;
     if (plantNeedWater == 0) {
       System.out.println("No plant needs water!");
     } else {
       waterAmountPerPlant = waterAmount/plantNeedWater;
-      System.out.println("Watering with " + waterAmount + "!");
     }
-
     return waterAmountPerPlant;
   }
 
   public void irrigate(int waterAmount) {
+    for (int index : checkFlowers()) {
+      flowers.get(index).setCurrentWater(flowers.get(index).getCurrentWater() +
+              waterAmountPerPlant(waterAmount));
     }
+    for (int index : checkTrees()) {
+      trees.get(index).setCurrentWater(trees.get(index).getCurrentWater() +
+              waterAmountPerPlant(waterAmount));
+    }
+
+    System.out.println("Watering with " + waterAmount + "!");
   }
 }
