@@ -3,10 +3,10 @@ package garden;
 public class Plant {
   private int currentWater;
   private String name;
-  private int absorbRate;
+  private double absorbRate;
   private int thirstyLine;
 
-  public Plant(int currentWater, String name, int absorbRate, int thirstyLine){
+  public Plant(int currentWater, String name, double absorbRate, int thirstyLine){
     this.currentWater = currentWater;
     this.name = name;
     this.absorbRate = absorbRate;
@@ -29,7 +29,7 @@ public class Plant {
     return thirstyLine;
   }
 
-  public int getAbsorbRate() {
+  public double getAbsorbRate() {
     return absorbRate;
   }
 }

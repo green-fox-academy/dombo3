@@ -19,9 +19,7 @@ public class Garden {
     List<Integer> plantsNeedWater = new ArrayList<>();
     for (int i = 0; i < plants.size(); i++) {
       if (plants.get(i).getCurrentWater() < plants.get(i).getThirstyLine());
-
-      // add something please
-    
+        plantsNeedWater.add(i);
     }
     return plantsNeedWater;
   }
@@ -38,8 +36,8 @@ public class Garden {
 
   public void irrigate(int waterAmount) {
     for (int index : checkPlants()) {
-      plants.get(index).setCurrentWater(plants.get(index).getCurrentWater() +
-              waterAmountPerPlant(waterAmount));
+      plants.get(index).setCurrentWater((int) (plants.get(index).getCurrentWater() +
+                    waterAmountPerPlant(waterAmount) * plants.get(index).getAbsorbRate()));
     }
     System.out.println("Watering with " + waterAmount + "!");
   }

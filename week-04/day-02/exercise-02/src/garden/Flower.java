@@ -2,6 +2,6 @@ package garden;
 
 public class Flower extends Plant{
   public Flower(int currentWater, String name) {
-    super(currentWater, name, 40, 5);
+    super(currentWater, name, 0.4, 5);
   }
 }
