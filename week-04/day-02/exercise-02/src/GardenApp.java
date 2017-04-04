@@ -5,16 +5,18 @@ public class GardenApp {
 
     Garden myGarden = new Garden();
 
-    Plant yellow = new Flower(25,75);
-    Plant blue = new Flower(3,75);
-    Plant purple = new Tree(9, 40);
-    Plant orange = new Tree(30, 40);
+    Plant yellow = new Flower(25,75, "yellow");
+    Plant blue = new Flower(3,75, "blue");
+    Plant purple = new Tree(9, 40, "purple");
+    Plant orange = new Tree(30, 40, "orange");
 
     myGarden.addFlower((Flower) yellow);
     myGarden.addFlower((Flower) blue);
     myGarden.addTree((Tree) purple);
     myGarden.addTree((Tree) orange);
 
+    myGarden.look();
     myGarden.irrigate(40);
+    myGarden.look();
   }
 }
