@@ -21,7 +21,8 @@ public class Extension {
     }
   }
 
-  boolean isVowel(char c) {
+  boolean isVowel(char C) {
+    char c = Character.toLowerCase(C);
     return Arrays.asList('a', 'u', 'o', 'e', 'i').contains(c);
   }
 

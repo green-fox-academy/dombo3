@@ -61,6 +61,16 @@ class ExtensionTest {
   }
 
   @Test
+  void testIsVowel_A() {
+    assertTrue(extension.isVowel('A'));
+  }
+
+  @Test
+  void testIsVowel_U() {
+    assertTrue(extension.isVowel('U'));
+  }
+
+  @Test
   public void testIsVowel_e() {
     assertTrue(extension.isVowel('e'));
   }
