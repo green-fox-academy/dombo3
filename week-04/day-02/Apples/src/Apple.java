@@ -1,5 +1,5 @@
-public class Apples {
-  public Apples() {
+public class Apple {
+  public Apple() {
   }
 
   public String getApple(){
