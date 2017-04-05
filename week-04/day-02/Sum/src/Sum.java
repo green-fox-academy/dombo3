@@ -8,8 +8,10 @@ public class Sum {
 
   public int sum(List<Integer> nums) {
     int result = 0;
-    for(int num : nums) {
-      result += num;
+    if (!(nums == null)) {
+      for(int num : nums) {
+        result += num;
+      }
     }
     return result;
   }

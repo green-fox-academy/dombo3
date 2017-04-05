@@ -8,7 +8,6 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class SumTest {
-
   Sum sum = new Sum();
 
   @Test
@@ -29,5 +28,10 @@ public class SumTest {
   public void testSumOne() throws Exception {
     List<Integer> numList = new ArrayList<>(Arrays.asList(2));
     assertEquals(sum.sum(numList),2);
+  }
+
+  @Test
+  public void testSumNULL() throws Exception {
+    assertEquals(sum.sum(null), 0);
   }
 }
