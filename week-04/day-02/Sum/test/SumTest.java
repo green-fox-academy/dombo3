@@ -9,12 +9,25 @@ import static org.junit.Assert.*;
 
 public class SumTest {
 
+  Sum sum = new Sum();
+
   @Test
-  public void sum() throws Exception {
-    Sum sum = new Sum();
+  public void testSumActualNumber() throws Exception {
     List<Integer> numList = new ArrayList<Integer>(Arrays.asList(3,4,5,6,7));
     int result = sum.sum(numList);
     assertEquals(result, 25);
   }
 
+  @Test
+  public void testSumEmpty() throws Exception {
+    List<Integer> numList = new ArrayList<Integer>();
+    int result = sum.sum(numList);
+    assertEquals(result, 0);
+  }
+
+  @Test
+  public void testSumOne() throws Exception {
+    List<Integer> numList = new ArrayList<>(Arrays.asList(2));
+    assertEquals(sum.sum(numList),2);
+  }
 }
