@@ -1,20 +1,23 @@
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Extension {
   int add(int a, int b) {
-    return 5;
+    return a + b;
   }
 
   int maxOfThree(int a, int b, int c) {
-    if (a > b)
-      return a;
-    else
-      return c;
+    return Math.max(Math.max(a,b),c);
   }
 
-  int median(List<Integer> pool) {
-    return pool.get((pool.size()-1)/2);
+  double median(List<Integer> pool) {
+    Collections.sort(pool);
+    if (pool.size() % 2 == 0) {
+     return (double) (pool.get((pool.size()/2)) + pool.get(pool.size()/2 - 1)) /2;
+    } else {
+      return (double) pool.get((pool.size() - 1) / 2);
+    }
   }
 
   boolean isVowel(char c) {
