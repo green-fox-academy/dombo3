@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sum {
-  
+
   public Sum() {
   }
 
-  public int sum(ArrayList<Integer> nums) {
+  public int sum(List<Integer> nums) {
     int result = 0;
     for(int num : nums) {
       result += num;
