@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Coordinates {
-  private static List<Coordinate> coordinates;
+  private List<Coordinate> coordinates;
 
   public Coordinates(){
     this.coordinates = new ArrayList<>();
@@ -14,7 +14,7 @@ public class Coordinates {
     coordinates.add(coordinate);
   }
 
-  public static List<Coordinate> getCoordinates() {
+  public List<Coordinate> getCoordinates() {
     return coordinates;
   }
 }
