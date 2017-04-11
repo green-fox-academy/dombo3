@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.lang.reflect.Array;
 
 public class Board extends JComponent implements KeyListener {
 
@@ -12,15 +11,15 @@ public class Board extends JComponent implements KeyListener {
   int HeroY;
   int HeroDirection;
   final int TILESIZE = 72;
-  final int BOARDDIMENSIONX = TILESIZE * 10;
-  final int BOARDIMENSIONY = TILESIZE * 10;
+  final int SIZEX = 10;
+  final int SIZEY = 10;
+  final int BOARDDIMENSIONX = TILESIZE * SIZEX;
+  final int BOARDIMENSIONY = TILESIZE * SIZEY;
+
 
   public Board() {
-
     HeroX = 0;
     HeroY = 0;
-
-
     setPreferredSize(new Dimension(BOARDDIMENSIONX, BOARDIMENSIONY));
     setVisible(true);
   }
@@ -32,15 +31,13 @@ public class Board extends JComponent implements KeyListener {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setVisible(true);
     frame.pack();
-
     frame.addKeyListener(board);
   }
 
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-
-    int[][] gameBoard = new int[][]{
+    int[][] gameBoard = new int[][] {
             { 1, 1, 1, 0, 1, 0, 1, 1, 1, 1 },
             { 1, 1, 1, 0, 1, 0, 1, 0, 0, 1 },
             { 1, 0, 0, 0, 1, 0, 1, 0, 0, 1 },
@@ -56,13 +53,14 @@ public class Board extends JComponent implements KeyListener {
     int row = gameBoard.length;
     int col = gameBoard[0].length;
 
-    for (int i = 0; i < 10; i++) {
-      for (int j = 0; j < 10; j++) {
+    for (int i = 0; i < row; i++) {
+      for (int j = 0; j < col; j++) {
         if (gameBoard[i][j] == 1) {
-          PositionedImage floor = new PositionedImage("assets/floor.png", i * 72, j * 72);
+          PositionedImage floor = new PositionedImage("assets/floor.png", i * TILESIZE, j *
+                  TILESIZE);
           floor.draw(graphics);
         } else if (gameBoard[i][j] == 0) {
-          PositionedImage wall = new PositionedImage("assets/wall.png",i * 72, j * 72);
+          PositionedImage wall = new PositionedImage("assets/wall.png",i * TILESIZE, j * TILESIZE);
           wall.draw(graphics);
         }
       }
