@@ -1,24 +1,20 @@
 package GameObject;
 
-import javafx.geometry.Pos;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class Board extends JComponent implements KeyListener {
 
-  int HeroX;
-  int HeroY;
-  int HeroDirection;
-  final int TILESIZE = 72;
-  final int SIZEX = 10;
-  final int SIZEY = 10;
-  final int BOARDDIMENSIONX = TILESIZE * SIZEX;
-  final int BOARDIMENSIONY = TILESIZE * SIZEY;
+ private int HeroX;
+ private int HeroY;
+ private int HeroDirection;
+ public static final int TILESIZE = 72;
+ public static final int SIZEX = 10;
+ public static final int SIZEY = 10;
+ private final int BOARDDIMENSIONX = TILESIZE * SIZEX;
+ private final int BOARDIMENSIONY = TILESIZE * SIZEY;
 
 
   public Board() {
@@ -39,7 +35,7 @@ public class Board extends JComponent implements KeyListener {
   }
 
 
-  int[][] gameBoard = new int[][] {
+  public static int[][] gameBoard = new int[][] {
           { 1, 1, 1, 0, 1, 0, 1, 1, 1, 1 },
           { 1, 1, 1, 0, 1, 0, 1, 0, 0, 1 },
           { 1, 0, 0, 0, 1, 0, 1, 0, 0, 1 },
@@ -52,13 +48,24 @@ public class Board extends JComponent implements KeyListener {
           { 1, 1, 1, 0, 1, 0, 0, 1, 1, 1 },
   };
 
+  public int[][] getGameBoard() {
+    return gameBoard;
+  }
+
+  public int getSIZEX() {
+    return SIZEX;
+  }
+
+  public int getSIZEY() {
+    return SIZEY;
+  }
+
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
 
     int row = gameBoard.length;
     int col = gameBoard[0].length;
-
 
     for (int i = 0; i < row; i++) {
       for (int j = 0; j < col; j++) {
@@ -87,6 +94,8 @@ public class Board extends JComponent implements KeyListener {
     }
     PositionedImage hero = new PositionedImage(heroFile,HeroX,HeroY);
     hero.draw(graphics);
+//    PositionedImage skeleton = new PositionedImage("assets/skeleton.png",)
+
   }
 
   @Override
@@ -97,12 +106,6 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void keyPressed(KeyEvent e) {
 
-  }
-
-  public void getPosHero() {
-    for (int i = 0; i < 10; i++) {
-
-    }
   }
 
 
