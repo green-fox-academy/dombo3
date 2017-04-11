@@ -52,8 +52,6 @@ public class Board extends JComponent implements KeyListener {
     int row = gameBoard.length;
     int col = gameBoard[0].length;
 
-
-
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 10; j++) {
         if (gameBoard[i][j] == 1) {
@@ -66,11 +64,20 @@ public class Board extends JComponent implements KeyListener {
       }
     }
 
-    if (HeroDirection == 0) {
-      PositionedImage hero = new PositionedImage("assets/hero-down.png",HeroX,HeroY);
-      hero.draw(graphics);
+    String heroFile;
+    switch (HeroDirection) {
+      case 0: heroFile = "assets/hero-up.png";
+      break;
+      case 1: heroFile = "assets/hero-left.png";;
+      break;
+      case 2: heroFile = "assets/hero-down.png";;
+      break;
+      case 3: heroFile = "assets/hero-right.png";;
+      break;
+      default: heroFile = "assets/hero-down.png";
     }
-
+    PositionedImage hero = new PositionedImage(heroFile,HeroX,HeroY);
+    hero.draw(graphics);
   }
 
   @Override
@@ -92,13 +99,13 @@ public class Board extends JComponent implements KeyListener {
       HeroDirection = 0;
     } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
       HeroY += 72;
-      HeroDirection = 1;
+      HeroDirection = 2;
     } else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
       HeroX += 72;
-      HeroDirection = 2;
+      HeroDirection = 3;
     } else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
       HeroX -= 72;
-      HeroDirection = 3;
+      HeroDirection = 1;
     }
     // and redraw to have a new picture with the new coordinates
     repaint();
