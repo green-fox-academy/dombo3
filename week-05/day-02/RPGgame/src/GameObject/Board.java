@@ -92,10 +92,29 @@ public class Board extends JComponent implements KeyListener {
       break;
       default: heroFile = "assets/hero-down.png";
     }
+
     PositionedImage hero = new PositionedImage(heroFile,HeroX,HeroY);
     hero.draw(graphics);
-//    PositionedImage skeleton = new PositionedImage("assets/skeleton.png",)
 
+    PositionedImage skeleton = new PositionedImage("assets/skeleton.png",skeletonXY.getX(), skeletonXY.getY());
+    skeleton.draw(graphics);
+
+  }
+
+  Coordinates skeletonCoordinates = getFloorCoordinates();
+  Coordinate skeletonXY = skeletonCoordinates.getCoordinates().get((int) (Math.random() *
+          skeletonCoordinates.getCoordinates().size()));
+
+  public Coordinates getFloorCoordinates() {
+    Coordinates Floors = new Coordinates();
+
+    for (int i = 0; i < Board.SIZEX; i++) {
+      for (int j = 0; j < Board.SIZEY; j++) {
+        if (Board.gameBoard[i][j] != 0)
+          Floors.add(new Coordinate(j * Board.TILESIZE,i * Board.TILESIZE));
+      }
+    }
+    return Floors;
   }
 
   @Override
