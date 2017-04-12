@@ -15,9 +15,9 @@ public class GameObject {
     this.costume = costume;
   }
 
-  public void move() {
-//    this.PosX = getCharPosX();
-//    this.PosY = getCharPosY();
+  public void move(int x, int y) {
+    this.posX = posX+x;
+    this.posY = posY+y;
   }
 
   public int getPosX() {

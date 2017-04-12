@@ -1,3 +1,5 @@
+package GameObjects;
+
 import GameObjects.Floor;
 import GameObjects.GameObject;
 import GameObjects.Wall;
@@ -5,24 +7,22 @@ import GameObjects.Wall;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Map {
-  private int[][] gameBoard;
+public class GameMap {
+  public static int[][] gameBoard = new int[][]{
+          {1, 1, 1, 0, 1, 0, 1, 1, 1, 1},
+          {1, 1, 1, 0, 1, 0, 1, 0, 0, 1},
+          {1, 0, 0, 0, 1, 0, 1, 0, 0, 1},
+          {1, 1, 1, 1, 1, 0, 1, 1, 1, 1},
+          {0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+          {1, 0, 1, 0, 1, 1, 1, 1, 0, 1},
+          {1, 0, 1, 0, 1, 0, 0, 1, 0, 1},
+          {1, 1, 1, 1, 1, 0, 0, 1, 0, 1},
+          {1, 0, 0, 0, 1, 1, 1, 1, 0, 1},
+          {1, 1, 1, 0, 1, 0, 0, 1, 1, 1},
+  };;
   private List<List<GameObject>> gameObjects;
 
-  public Map() {
-    this.gameBoard = new int[][]{
-            {1, 1, 1, 0, 1, 0, 1, 1, 1, 1},
-            {1, 1, 1, 0, 1, 0, 1, 0, 0, 1},
-            {1, 0, 0, 0, 1, 0, 1, 0, 0, 1},
-            {1, 1, 1, 1, 1, 0, 1, 1, 1, 1},
-            {0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
-            {1, 0, 1, 0, 1, 1, 1, 1, 0, 1},
-            {1, 0, 1, 0, 1, 0, 0, 1, 0, 1},
-            {1, 1, 1, 1, 1, 0, 0, 1, 0, 1},
-            {1, 0, 0, 0, 1, 1, 1, 1, 0, 1},
-            {1, 1, 1, 0, 1, 0, 0, 1, 1, 1},
-    };
-
+  public GameMap() {
     this.gameObjects = new ArrayList<List<GameObject>>();
   }
 
@@ -45,5 +45,9 @@ public class Map {
 
   public List<List<GameObject>> getGameObjects() {
     return gameObjects;
+  }
+
+  public int[][] getGameBoard() {
+    return gameBoard;
   }
 }

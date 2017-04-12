@@ -1,20 +1,16 @@
+import GameObjects.GameMap;
 import GameObjects.GameObject;
 import GameObjects.PositionedImage;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-import static com.sun.glass.ui.Cursor.setVisible;
 
 public class GameEngine extends JComponent {
-  private Map map;
+  private GameMap gameMap;
 
   public GameEngine() {
-    this.map = new Map();
+    this.gameMap = new GameMap();
     setPreferredSize(new Dimension(720,720));
     setVisible(true);
   }
@@ -22,8 +18,8 @@ public class GameEngine extends JComponent {
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-    map.fillMap();
-    for (List<GameObject> list : map.getGameObjects()) {
+    gameMap.fillMap();
+    for (List<GameObject> list : gameMap.getGameObjects()) {
       for (GameObject o : list) {
         PositionedImage image = new PositionedImage(o.getCostume(), o.getPosX(), o.getPosY());
         image.draw(graphics);
