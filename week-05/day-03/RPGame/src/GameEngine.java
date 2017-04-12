@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameEngine extends JComponent implements KeyListener {
@@ -19,12 +20,15 @@ public class GameEngine extends JComponent implements KeyListener {
     setPreferredSize(new Dimension(720,720));
     setVisible(true);
     hero = new Hero(0,0,"assets/hero-down.png");
+    gameMap.fillMap();
+    List<GameObject> heroList = new ArrayList<>();
+    heroList.add(hero);
+    gameMap.getGameObjects().add(heroList);
   }
 
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-    gameMap.fillMap();
     for (List<GameObject> list : gameMap.getGameObjects()) {
       for (GameObject o : list) {
         PositionedImage image = new PositionedImage(o.getCostume(), o.getPosX(), o.getPosY());
@@ -32,7 +36,7 @@ public class GameEngine extends JComponent implements KeyListener {
       }
     }
   }
-  
+
   public static void main(String[] args) {
     JFrame frame = new JFrame("RPG Game");
     GameEngine gameEngine = new GameEngine();
@@ -53,7 +57,6 @@ public class GameEngine extends JComponent implements KeyListener {
 
   }
 
-  // But actually we can use just this one for our goals here
   @Override
   public void keyReleased(KeyEvent e) {
 

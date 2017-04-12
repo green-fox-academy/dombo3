@@ -31,4 +31,9 @@ public class GameObject {
   public String getCostume() {
     return costume;
   }
+
+  public void setCostume(String costume) {
+    this.costume = costume;
+  }
 }
+
