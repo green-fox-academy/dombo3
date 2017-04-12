@@ -2,6 +2,9 @@ package GameObjects;
 
 public class Character extends GameObject {
 
+  public Character() {
+  }
+
   public Character(int posX, int posY, String costume) {
     super(posX, posY, costume);
   }
