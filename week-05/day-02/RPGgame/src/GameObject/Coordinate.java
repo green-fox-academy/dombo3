@@ -1,5 +1,7 @@
 package GameObject;
 
+import java.util.List;
+
 public class Coordinate {
   int x;
   int y;

@@ -1,4 +1,4 @@
 package GameObjects;
 
-public class Skeleton {
+public class Skeleton extends Monster {
 }

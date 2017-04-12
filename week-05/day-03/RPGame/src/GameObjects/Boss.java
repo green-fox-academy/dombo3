@@ -1,4 +1,4 @@
 package GameObjects;
 
-public class Boss {
+public class Boss extends Monster {
 }
