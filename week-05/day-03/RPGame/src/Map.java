@@ -34,7 +34,7 @@ public class Map {
       List<GameObject> tempArrayList = new ArrayList<>();
       gameObjects.add(tempArrayList);
       for (int j = 0; j < col; j++) {
-        if (gameBoard[i][j] == 1) {
+        if (gameBoard[j][i] == 1) {
           tempArrayList.add(new Floor(i * 72, j * 72, "assets/floor.png"));
         } else if (gameBoard[j][i] == 0) {
           tempArrayList.add(new Wall(i * 72, j * 72, "assets/wall.png"));

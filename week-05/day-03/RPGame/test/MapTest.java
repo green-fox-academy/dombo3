@@ -21,4 +21,12 @@ public class MapTest {
     assertEquals(floor.getClass(),firstObject.getClass());
   }
 
+  @Test
+  public void fillMap_getCostume() throws Exception {
+    map.fillMap();
+    List<List<GameObject>> myList = map.getGameObjects();
+    GameObject firstObject = myList.get(0).get(0);
+    assertEquals(floor.getClass(),firstObject.getClass());
+  }
+
 }
