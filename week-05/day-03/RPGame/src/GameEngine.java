@@ -8,13 +8,18 @@ import java.awt.event.KeyListener;
 public class GameEngine extends JComponent implements KeyListener {
   private GameMap gameMap;
   private Hero hero;
+  private Skeleton skeleton;
 
   public GameEngine() {
     this.gameMap = new GameMap();
-    this.hero = new Hero(0,0,"assets/hero-down.png");
+    this.hero = new Hero(0,0,"assets/hero-down.png", gameMap);
+    this.skeleton = new Skeleton("assets/skeleton.png", gameMap);
 
     gameMap.fillMap();
     gameMap.getGameObjects().add(hero);
+    gameMap.getGameObjects().add(skeleton);
+    gameMap.getCharacterList().add(hero);
+    gameMap.getCharacterList().add(skeleton);
 
     setPreferredSize(new Dimension(720,720));
     setVisible(true);
@@ -69,7 +74,7 @@ public class GameEngine extends JComponent implements KeyListener {
     }
 
     if (counter == times) {
-      monster Move please
+//      monster Move please
     }
 
     repaint();

@@ -34,4 +34,12 @@ public class GameObject {
   public void setCostume(String costume) {
     this.costume = costume;
   }
+
+  public void setPosX(int posX) {
+    this.posX = posX;
+  }
+
+  public void setPosY(int posY) {
+    this.posY = posY;
+  }
 }

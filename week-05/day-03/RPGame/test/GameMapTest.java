@@ -18,4 +18,11 @@ public class GameMapTest {
     GameObject firstObject = gameMap.getGameObjects().get(0);
     assertEquals(floor.getClass(),firstObject.getClass());
   }
+
+  @Test
+  public void generateRandomNum() throws Exception {
+    gameMap.fillMap();
+    int[] position = gameMap.getRandomCoordinate();
+    assertEquals(0,position[0]);
+  }
 }

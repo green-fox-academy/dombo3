@@ -1,22 +1,10 @@
 package GameObjects;
 
 public class Monster extends Character {
-  public Monster(int posX, int posY, String costume, GameMap map) {
-
-    super(posX,posY,costume, map);
+  public Monster() {
   }
 
-  public int[] getRandomCoordinate() {
-
+  public Monster(String costume, GameMap map) {
+    super(map.getRandomCoordinate()[0],map.getRandomCoordinate()[1],costume, map);
   }
-
-  move()
-
-  Select please randomly:
-
-  moveLeft;
-  moveRight;
-  moveDown;
-  moveUp;
-
 }
