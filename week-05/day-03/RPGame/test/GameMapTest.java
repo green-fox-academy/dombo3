@@ -11,22 +11,11 @@ public class GameMapTest {
 
   GameMap gameMap = new GameMap();
   GameObject floor = new Floor(72,72,"assert/floor.png");
-  GameObject wall = new Wall(72,72, "assert/wall.png");
 
   @Test
-  public void fillMap() throws Exception {
+  public void fillMap_getCostumeFirstObject_isFloor() throws Exception {
     gameMap.fillMap();
-    List<List<GameObject>> myList = gameMap.getGameObjects();
-    GameObject firstObject = myList.get(0).get(0);
+    GameObject firstObject = gameMap.getGameObjects().get(0);
     assertEquals(floor.getClass(),firstObject.getClass());
   }
-
-  @Test
-  public void fillMap_getCostume() throws Exception {
-    gameMap.fillMap();
-    List<List<GameObject>> myList = gameMap.getGameObjects();
-    GameObject firstObject = myList.get(0).get(0);
-    assertEquals(floor.getClass(),firstObject.getClass());
-  }
-
 }

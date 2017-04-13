@@ -6,7 +6,6 @@ public class GameObject {
   private String costume;
 
   public GameObject() {
-
   }
 
   public GameObject(int posX, int posY, String costume) {
@@ -36,4 +35,3 @@ public class GameObject {
     this.costume = costume;
   }
 }
-
