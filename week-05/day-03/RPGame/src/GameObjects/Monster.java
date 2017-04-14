@@ -5,6 +5,9 @@ public class Monster extends Character {
   }
 
   public Monster(String costume, GameMap map) {
-    super(map.getRandomCoordinate()[0],map.getRandomCoordinate()[1],costume, map);
+    super(0,0,costume, map);
+    int[] coordinate = map.getRandomCoordinate();
+    this.setPosY(coordinate[0]);
+    this.setPosX(coordinate[1]);
   }
 }

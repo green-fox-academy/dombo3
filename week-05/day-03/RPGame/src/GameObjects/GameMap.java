@@ -51,40 +51,29 @@ public class GameMap {
     return gameBoard;
   }
 
-  public boolean isWall() {
-    for (GameObject g : gameObjects) {
-      if (g.getCostume().equals("assets/wall.png")) {
-        return true;
-      }
-    }
-    return false;
+  public boolean isWall(int i, int j) {
+    System.out.println(gameBoard[i][j] == 0);
+    return gameBoard[i][j] == 0;
   }
 
-  public boolean anotherisWall(int x, int y) {
-    return gameBoard[x/72][y/72] == 1;
-  }
-
-  public boolean isCharacter(int posX, int posY) {
-    for (GameObject g : characterList)
-      if (g.getPosX() == posX && g.getPosY() == posY) {
-      return true;
-    }
-    return false;
-  }
+//  public boolean isCharacterAtXY(int i, int j) {
+//    for (GameObject g : characterList)
+//      if (g.getPosX() == i * 72 && g.getPosY() == j * 72) {
+//        return true;
+//    }
+//    return false;
+//  }
 
   public int[] getRandomCoordinate() {
-    int[] coordinates = new int[2];
-    int X = (int) (Math.random() * 10) * 72;
-    int Y = (int) (Math.random() * 10) * 72;
-
-    while (anotherisWall(X,Y) || isCharacter(X,Y)) {
-        X = (int) (Math.random() * 10) * 72;
-        Y = (int) (Math.random() * 10) * 72;
+    int[] randCoordinates = new int[2];
+    int i = 0;
+    int j = 3;
+    while (isWall(i,j)) {
+          i = (int) (Math.random() * 10);
+          j = (int) (Math.random() * 10);
     }
-
-    coordinates[0] = X;
-    coordinates[1] = Y;
-
-    return coordinates;
+    randCoordinates[0] = i * 72;
+    randCoordinates[1] = j * 72;
+    return randCoordinates;
   }
 }

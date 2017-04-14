@@ -9,17 +9,25 @@ public class GameEngine extends JComponent implements KeyListener {
   private GameMap gameMap;
   private Hero hero;
   private Skeleton skeleton;
+  private Skeleton skeleton2;
+  private Skeleton skeleton3;
 
   public GameEngine() {
     this.gameMap = new GameMap();
     this.hero = new Hero(0,0,"assets/hero-down.png", gameMap);
     this.skeleton = new Skeleton("assets/skeleton.png", gameMap);
+    this.skeleton2 = new Skeleton("assets/skeleton.png", gameMap);
+    this.skeleton3 = new Skeleton("assets/skeleton.png", gameMap);
 
     gameMap.fillMap();
     gameMap.getGameObjects().add(hero);
     gameMap.getGameObjects().add(skeleton);
+    gameMap.getGameObjects().add(skeleton2);
+    gameMap.getGameObjects().add(skeleton3);
     gameMap.getCharacterList().add(hero);
     gameMap.getCharacterList().add(skeleton);
+    gameMap.getCharacterList().add(skeleton2);
+    gameMap.getCharacterList().add(skeleton3);
 
     setPreferredSize(new Dimension(720,720));
     setVisible(true);
