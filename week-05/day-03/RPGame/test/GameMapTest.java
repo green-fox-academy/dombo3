@@ -3,8 +3,6 @@ import GameObjects.GameObject;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
-
 import static org.junit.Assert.*;
 import GameObjects.*;
 
@@ -20,7 +18,7 @@ public class GameMapTest {
 
   @Test
   public void fillMap_getCostumeFirstObject_isFloor() throws Exception {
-    GameObject firstObject = gameMap.getGameObjects().get(0);
+    GameObject firstObject = gameMap.getGameFloor().get(0);
     assertEquals(floor.getClass(),firstObject.getClass());
   }
 

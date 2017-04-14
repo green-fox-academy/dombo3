@@ -4,15 +4,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameEngine extends JComponent implements KeyListener {
   private GameMap gameMap;
   private InitChar players;
+  private List<GameObject> gameObjects;
+
 
   public GameEngine() {
     this.gameMap = new GameMap();
     gameMap.fillMap();
-    players = new InitChar(gameMap,3);
+    this.players = new InitChar(gameMap,3);
+    this.gameObjects = new ArrayList<>();
+    gameObjects.addAll(gameMap.getGameFloor());
+    gameObjects.addAll(players.getCharacters());
     setPreferredSize(new Dimension(720,720));
     setVisible(true);
   }
@@ -20,7 +27,7 @@ public class GameEngine extends JComponent implements KeyListener {
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-      for (GameObject o : gameMap.getGameObjects()) {
+      for (GameObject o : gameObjects) {
         PositionedImage image = new PositionedImage(o.getCostume(), o.getPosX(), o.getPosY());
         image.draw(graphics);
       }

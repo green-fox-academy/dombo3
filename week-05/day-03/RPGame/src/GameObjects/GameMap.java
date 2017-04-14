@@ -17,11 +17,11 @@ public class GameMap {
           {1, 1, 1, 0, 1, 0, 0, 1, 1, 1},
   };
 
-  private List<GameObject> gameObjects;
+  private List<GameObject> gameFloor;
   public int gameLevel = 0;
 
   public GameMap() {
-    this.gameObjects = new ArrayList<>();
+    this.gameFloor = new ArrayList<>();
     gameLevel += 1;
   }
 
@@ -32,16 +32,16 @@ public class GameMap {
     for (int i = 0; i < row; i++) {
       for (int j = 0; j < col; j++) {
         if (gameBoard[j][i] == 1) {
-          gameObjects.add(new Floor(i * 72, j * 72, "assets/floor.png"));
+          gameFloor.add(new Floor(i * 72, j * 72, "assets/floor.png"));
         } else if (gameBoard[j][i] == 0) {
-          gameObjects.add(new Wall(i * 72, j * 72, "assets/wall.png"));
+          gameFloor.add(new Wall(i * 72, j * 72, "assets/wall.png"));
         }
       }
     }
   }
 
-  public List<GameObject> getGameObjects() {
-    return gameObjects;
+  public List<GameObject> getGameFloor() {
+    return gameFloor;
   }
 
   public boolean isWall(int i, int j) {

@@ -1,5 +1,8 @@
 package GameObjects;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameObject {
   private int posX;
   private int posY;

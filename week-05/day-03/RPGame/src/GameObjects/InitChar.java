@@ -11,18 +11,14 @@ public class InitChar {
 
   public InitChar(GameMap gameMap, int skeletons) {
     this.hero = new Hero("assets/hero-down.png", gameMap);
-    gameMap.getGameObjects().add(hero);
     this.boss = new Boss("assets/boss.png",gameMap);
-    gameMap.getGameObjects().add(boss);
     this.skeletons = new ArrayList<>();
+    this.characters = new ArrayList<>();
+
     for (int i = 0; i < skeletons; i++){
       this.skeletons.add(new Skeleton("assets/skeleton.png", gameMap));
-      for (Skeleton skeleton : this.skeletons) {
-        gameMap.getGameObjects().add(skeleton);
-      }
     }
 
-    this.characters = new ArrayList<>();
     characters.add(hero);
     characters.add(boss);
     for (Skeleton skeleton : this.skeletons) {
