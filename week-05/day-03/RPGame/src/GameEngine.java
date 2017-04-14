@@ -7,28 +7,12 @@ import java.awt.event.KeyListener;
 
 public class GameEngine extends JComponent implements KeyListener {
   private GameMap gameMap;
-  private Hero hero;
-  private Skeleton skeleton;
-  private Skeleton skeleton2;
-  private Skeleton skeleton3;
+  private InitChar players;
 
   public GameEngine() {
     this.gameMap = new GameMap();
-    this.hero = new Hero(0,0,"assets/hero-down.png", gameMap);
-    this.skeleton = new Skeleton("assets/skeleton.png", gameMap);
-    this.skeleton2 = new Skeleton("assets/skeleton.png", gameMap);
-    this.skeleton3 = new Skeleton("assets/skeleton.png", gameMap);
-
     gameMap.fillMap();
-    gameMap.getGameObjects().add(hero);
-    gameMap.getGameObjects().add(skeleton);
-    gameMap.getGameObjects().add(skeleton2);
-    gameMap.getGameObjects().add(skeleton3);
-    gameMap.getCharacterList().add(hero);
-    gameMap.getCharacterList().add(skeleton);
-    gameMap.getCharacterList().add(skeleton2);
-    gameMap.getCharacterList().add(skeleton3);
-
+    players = new InitChar(gameMap,3);
     setPreferredSize(new Dimension(720,720));
     setVisible(true);
   }
@@ -65,24 +49,23 @@ public class GameEngine extends JComponent implements KeyListener {
   @Override
   public void keyReleased(KeyEvent e) {
     int times = 2;
-    int counter = 0;
+    int counter = 1;
 
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      hero.moveUp();
+      players.getHero().moveUp();
       counter++;
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      hero.moveDown();
+      players.getHero().moveDown();
       counter++;
+      for (int i = 0; i < players.getSkeletons().size(); i++){
+        players.getSkeletons().get(i).move();
+      }
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      hero.moveRight();
+      players.getHero().moveRight();
       counter++;
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      hero.moveLeft();
+      players.getHero().moveLeft();
       counter++;
-    }
-
-    if (counter == times) {
-//      monster Move please
     }
 
     repaint();

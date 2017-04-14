@@ -52,7 +52,6 @@ public class GameMap {
   }
 
   public boolean isWall(int i, int j) {
-    System.out.println(gameBoard[i][j] == 0);
     return gameBoard[i][j] == 0;
   }
 
