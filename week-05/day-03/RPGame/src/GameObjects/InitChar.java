@@ -30,6 +30,14 @@ public class InitChar {
     return hero;
   }
 
+  public Boss getBoss() {
+    return boss;
+  }
+
+  public List<Skeleton> getSkeletons() {
+    return skeletons;
+  }
+
   public List<Character> getCharacters() {
     return characters;
   }

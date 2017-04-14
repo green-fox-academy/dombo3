@@ -23,23 +23,33 @@ public class Character extends GameObject {
   }
 
   public void moveUp() {
-    if ((getPosY() - 72) >= 0 && (GameMap.gameBoard[getPosY()/72 - 1][getPosX()/72] != 0)) {
-      move(0, -72);
+    if ((getPosY() - map.TILESIZE) >= 0 && (GameMap.gameBoard[getPosY()/map.TILESIZE - 1][getPosX
+            ()/map.TILESIZE] !=
+            0)) {
+      move(0, -map.TILESIZE);
     }
   }
   public void moveDown() {
-    if ((getPosY() + 72) < 720 && (GameMap.gameBoard[getPosY()/72 + 1][getPosX()/72] != 0)) {
-      move(0, 72);
+    if ((getPosY() + map.TILESIZE) < map.row * map.TILESIZE && (GameMap.gameBoard[getPosY()/map.TILESIZE +
+            1][getPosX
+            ()/map.TILESIZE] !=
+            0)) {
+      move(0, map.TILESIZE);
     }
   }
   public void moveRight() {
-    if ((getPosX() + 72) < 720 && (GameMap.gameBoard[getPosY()/72][getPosX()/72 + 1] != 0)) {
-      move(72, 0);
+    if ((getPosX() + map.TILESIZE) < map.col * map.TILESIZE  && (GameMap.gameBoard[getPosY()
+            /map.TILESIZE][getPosX()
+            /map.TILESIZE + 1] !=
+            0)) {
+      move(map.TILESIZE, 0);
     }
   }
   public void moveLeft() {
-    if ((getPosX() - 72) >= 0 && (GameMap.gameBoard[getPosY()/72][getPosX()/72 -1] != 0)) {
-      move(-72, 0);
+    if ((getPosX() - map.TILESIZE) >= 0 && (GameMap.gameBoard[getPosY()/map.TILESIZE][getPosX()/map.TILESIZE
+            -1] !=
+            0)) {
+      move(-map.TILESIZE, 0);
     }
   }
 

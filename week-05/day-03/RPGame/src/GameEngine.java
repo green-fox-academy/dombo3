@@ -9,18 +9,19 @@ import java.util.List;
 
 public class GameEngine extends JComponent implements KeyListener {
   private GameMap gameMap;
-  private InitChar players;
+  private InitChar characters;
   private List<GameObject> gameObjects;
 
 
   public GameEngine() {
     this.gameMap = new GameMap();
     gameMap.fillMap();
-    this.players = new InitChar(gameMap,3);
+    this.characters = new InitChar(gameMap,3);
     this.gameObjects = new ArrayList<>();
     gameObjects.addAll(gameMap.getGameFloor());
-    gameObjects.addAll(players.getCharacters());
-    setPreferredSize(new Dimension(720,720));
+    gameObjects.addAll(characters.getCharacters());
+    setPreferredSize(new Dimension(gameMap.getCol() * gameMap.getTILESIZE() + 120,gameMap.getRow
+            () * gameMap.getTILESIZE()));
     setVisible(true);
   }
 
@@ -31,6 +32,8 @@ public class GameEngine extends JComponent implements KeyListener {
         PositionedImage image = new PositionedImage(o.getCostume(), o.getPosX(), o.getPosY());
         image.draw(graphics);
       }
+
+    new HUD(graphics, gameMap, characters);
   }
 
   public static void main(String[] args) {
@@ -57,13 +60,13 @@ public class GameEngine extends JComponent implements KeyListener {
   public void keyReleased(KeyEvent e) {
 
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      players.getHero().moveUp();
+      characters.getHero().moveUp();
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      players.getHero().moveDown();
+      characters.getHero().moveDown();
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      players.getHero().moveRight();
+      characters.getHero().moveRight();
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      players.getHero().moveLeft();
+      characters.getHero().moveLeft();
     }
 
     repaint();
