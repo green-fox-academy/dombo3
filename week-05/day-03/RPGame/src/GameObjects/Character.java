@@ -8,11 +8,16 @@ public class Character extends GameObject {
   private List<GameObject> characterList;
   private GameMap map;
 
+  protected int maxHP;
+  protected int HP;
+  protected int DP;
+  protected int SP;
+
   public Character() {
   }
 
-  public Character(int posX, int posY, String costume, GameMap map) {
-    super(posX, posY, costume);
+  public Character(String costume, GameMap map) {
+    super(0,0,costume);
     this.characterList = new ArrayList<>();
     this.map = map;
   }
@@ -38,7 +43,19 @@ public class Character extends GameObject {
     }
   }
 
-  public List<GameObject> getCharacterList() {
-    return characterList;
+  public void setMaxHP(int maxHP) {
+    this.maxHP = maxHP;
+  }
+
+  public void setHP(int currentHP) {
+    this.HP = HP;
+  }
+
+  public void setDP(int DP) {
+    this.DP = DP;
+  }
+
+  public void setSP(int SP) {
+    this.SP = SP;
   }
 }

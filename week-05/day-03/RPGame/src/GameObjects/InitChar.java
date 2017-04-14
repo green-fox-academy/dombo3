@@ -10,7 +10,7 @@ public class InitChar {
   private List<Character> characters;
 
   public InitChar(GameMap gameMap, int skeletons) {
-    this.hero = new Hero(0,0,"assets/hero-down.png", gameMap);
+    this.hero = new Hero("assets/hero-down.png", gameMap);
     gameMap.getGameObjects().add(hero);
     this.boss = new Boss("assets/boss.png",gameMap);
     gameMap.getGameObjects().add(boss);

@@ -18,11 +18,11 @@ public class GameMap {
   };
 
   private List<GameObject> gameObjects;
-  private List<GameObject> characterList;
+  public int gameLevel = 0;
 
   public GameMap() {
     this.gameObjects = new ArrayList<>();
-    this.characterList = new ArrayList<>();
+    gameLevel += 1;
   }
 
   public void fillMap() {
@@ -43,25 +43,10 @@ public class GameMap {
   public List<GameObject> getGameObjects() {
     return gameObjects;
   }
-  public List<GameObject> getCharacterList() {
-    return characterList;
-  }
-
-  public int[][] getGameBoard() {
-    return gameBoard;
-  }
 
   public boolean isWall(int i, int j) {
     return gameBoard[i][j] == 0;
   }
-
-//  public boolean isCharacterAtXY(int i, int j) {
-//    for (GameObject g : characterList)
-//      if (g.getPosX() == i * 72 && g.getPosY() == j * 72) {
-//        return true;
-//    }
-//    return false;
-//  }
 
   public int[] getRandomCoordinate() {
     int[] randCoordinates = new int[2];

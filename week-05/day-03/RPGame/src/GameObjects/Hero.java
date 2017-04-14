@@ -2,9 +2,14 @@ package GameObjects;
 
 public class Hero extends Character {
 
-  public Hero(int posX, int posY, String costume, GameMap map) {
-    super(posX, posY, costume,
-            map);
+  public Hero(String costume, GameMap map) {
+    super(costume, map);
+    Dice myDice = new Dice();
+    this.HP = 20 + 3 * myDice.roll();
+    this.DP = 2 * myDice.roll();
+    this.SP = 5 + myDice.roll();
+    this.setPosX(0);
+    this.setPosY(0);
   }
 
   @Override
