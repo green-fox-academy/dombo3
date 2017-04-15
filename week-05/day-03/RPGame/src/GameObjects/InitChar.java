@@ -24,6 +24,7 @@ public class InitChar {
     for (Skeleton skeleton : this.skeletons) {
       characters.add(skeleton);
     }
+
   }
 
   public Hero getHero() {

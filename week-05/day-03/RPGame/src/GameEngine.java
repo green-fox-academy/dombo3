@@ -14,12 +14,14 @@ public class GameEngine extends JComponent implements KeyListener {
 
 
   public GameEngine() {
-    this.gameMap = new GameMap();
+    gameMap = new GameMap();
+    characters = new InitChar(gameMap,3);
+    gameObjects = new ArrayList<>();
+
     gameMap.fillMap();
-    this.characters = new InitChar(gameMap,3);
-    this.gameObjects = new ArrayList<>();
     gameObjects.addAll(gameMap.getGameFloor());
     gameObjects.addAll(characters.getCharacters());
+
     setPreferredSize(new Dimension(gameMap.getCol() * gameMap.getTILESIZE() + 120,gameMap.getRow
             () * gameMap.getTILESIZE()));
     setVisible(true);
