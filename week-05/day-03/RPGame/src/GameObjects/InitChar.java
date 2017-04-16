@@ -7,23 +7,27 @@ public class InitChar {
   private Hero hero;
   private Boss boss;
   private List<Skeleton> skeletons;
+  private List<Monster> monsters;
   private List<Character> characters;
 
   public InitChar(GameMap gameMap, int skeletons) {
-    this.hero = new Hero("assets/hero-down.png", gameMap);
-    this.boss = new Boss("assets/boss.png",gameMap);
     this.skeletons = new ArrayList<>();
+    this.monsters = new ArrayList<>();
     this.characters = new ArrayList<>();
 
+    // create game characters
+    this.hero = new Hero("assets/hero-down.png", gameMap);
+    this.boss = new Boss("assets/boss.png",gameMap);
     for (int i = 0; i < skeletons; i++){
       this.skeletons.add(new Skeleton("assets/skeleton.png", gameMap));
     }
 
     characters.add(hero);
     characters.add(boss);
-    for (Skeleton skeleton : this.skeletons) {
-      characters.add(skeleton);
-    }
+    characters.addAll(this.skeletons);
+
+    monsters.add(boss);
+    monsters.addAll(this.skeletons);
 
   }
 
@@ -37,6 +41,10 @@ public class InitChar {
 
   public List<Skeleton> getSkeletons() {
     return skeletons;
+  }
+
+  public List<Monster> getMonsters() {
+    return monsters;
   }
 
   public List<Character> getCharacters() {

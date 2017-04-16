@@ -14,4 +14,22 @@ public class Monster extends Character {
     this.DP = map.gameLevel / 2 * myDice.roll();
     this.SP = map.gameLevel * myDice.roll();
   }
+
+  public void move() {
+    int move = (int) (Math.random() * 4) + 1;
+    switch (move) {
+      case 1:
+        moveUp();
+        break;
+      case 2:
+        moveDown();
+        break;
+      case 3:
+        moveRight();
+        break;
+      case 4:
+        moveLeft();
+        break;
+    }
+  }
 }
