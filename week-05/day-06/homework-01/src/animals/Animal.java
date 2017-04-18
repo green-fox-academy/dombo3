@@ -5,10 +5,17 @@ public abstract class Animal {
   protected int age;
   protected String gender;
 
-  public abstract void greet();
-  public abstract String wantChild();
-  public abstract void eat();
-  public abstract boolean sleep();
+  public void greet() {
+
+  };
+
+  public void eat() {
+
+  };
+
+  public void sleep() {
+
+  };
 
   public String getName() {
     return name;
