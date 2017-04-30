@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TodoApp {
+
   Todos myTodoList;
   List<Command> commands;
 
@@ -18,6 +19,7 @@ public class TodoApp {
     commands.add(new AddCommand());
     commands.add(new RemoveCommand());
     commands.add(new CompleteCommand());
+    commands.add(new UpdateCommand());
   }
 
   public String runUsage() {
@@ -35,9 +37,11 @@ public class TodoApp {
       return runUsage();
     }
 
+    setIDbase(myTodoList.getTodos());
+
     for (Command command : commands) {
       if (("-" + command.getFlag()).equals(args[0])) {
-        String execute = command.execute(myTodoList,args);
+        String execute = command.execute(myTodoList, args);
         writeFileLines(myTodoList.createStringList());
         return execute;
       }
@@ -74,9 +78,21 @@ public class TodoApp {
       String[] splittedLine = line.split(";");
       String todo = splittedLine[0];
       boolean completed = (Integer.parseInt(splittedLine[1]) == 1);
-      myTodos.add(new Todo(todo, completed));
+      int ID = Integer.parseInt(splittedLine[2]);
+      myTodos.add(new Todo(todo, completed, ID));
     }
 
     return myTodos;
+  }
+
+// Set the counter for ID based on the list in the memory
+  public void setIDbase(List<Todo> Todos) {
+    int max = 0;
+    for (Todo todo : Todos) {
+      if (max < todo.getID()) {
+        max = todo.getID();
+      }
+    }
+    Todo.setCounter(max);
   }
 }
