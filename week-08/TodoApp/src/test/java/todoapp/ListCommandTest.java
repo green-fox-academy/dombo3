@@ -9,7 +9,7 @@ public class ListCommandTest {
   public void returnEmptyMessage() {
     String[] args = {};
     ListCommand command = new ListCommand();
-    assertEquals("No todos for today! :)", command.execute(args));
+    assertEquals("No todos for today! :)", command.execute(new Todos(),args));
   }
 
   @Test

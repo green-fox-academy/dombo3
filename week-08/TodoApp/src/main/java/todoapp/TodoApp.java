@@ -72,10 +72,8 @@ public class TodoApp {
 
     for (String line : rawLines) {
       String[] splittedLine = line.split(";");
-
       String todo = splittedLine[0];
       boolean completed = (Integer.parseInt(splittedLine[1]) == 1);
-
       myTodos.add(new Todo(todo, completed));
     }
 

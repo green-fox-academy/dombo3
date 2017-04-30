@@ -26,7 +26,7 @@ public class Todos {
     List<String> lines = new ArrayList<>();
     for (int i = 0; i < todos.size(); i++) {
       int isCompleted = (todos.get(i).isCompleted()) ? 1 : 0;
-      lines.add(todos.get(i).getName() + ";" +  isCompleted);
+      lines.add(todos.get(i).getName() + ";" +  isCompleted + ";" + todos.get(i).getID());
     }
     return lines;
   }

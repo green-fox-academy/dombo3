@@ -10,7 +10,7 @@ class ChildCommand extends Command {
   }
 
   @Override
-  public String execute(String[] args) {
+  public String execute(Todos myTodoList, String[] args) {
     return "";
   }
 }
