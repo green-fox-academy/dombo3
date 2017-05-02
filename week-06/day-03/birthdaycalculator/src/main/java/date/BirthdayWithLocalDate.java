@@ -1,9 +1,6 @@
 package date;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
