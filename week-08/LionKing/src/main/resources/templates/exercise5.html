@@ -6,8 +6,6 @@
   <meta charset="utf-8" />
 </head>
 <body>
-  <p th:text="${result.text}"></p>
-  <p th:utext="${result.text}"></p>
-  <a href="/form">Submit another form</a>
+  <p th:each="account : ${accounts}" th:text="${account.name}"></p>
 </body>
 </html>
