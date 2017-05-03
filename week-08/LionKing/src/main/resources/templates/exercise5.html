@@ -7,5 +7,6 @@
 </head>
 <body>
   <p th:each="account : ${accounts}" th:text="${account.name}"></p>
+  <p th:each="account : ${accounts}" th:text="${accountStat.index}"></p>
 </body>
 </html>
