@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+<head>
+  <title>Hello world page</title>
+  <link rel="stylesheet" href="/static/css/hello.css"/>
+</head>
+<body>
+<div layout:fragment="content">
+  <!--<span th:if="${resources.size() == 0}">No resources found.</span>-->
+  <span th:text="|Hello ${name}|"/>, did you know that <span th:utext="${formatted}"/> is <span th:text="${formatted}"/> in HTML?
+  <div class="list-group">
+    <a th:each="resource : ${resources}"
+       th:href="${resource.url}" class="list-group-item">
+      <b th:text="${resource.name}"></b>
+    </a>
+  </div>
+  <h1>Hello world</h1>
+  <!--<div layout:fragment="content">-->
+    <!--<form th:method="POST" th:action="${action}">-->
+      <!--<div class="form-group">-->
+        <!--<label>Name:</label>-->
+        <!--<input class="form-control" name="name">-->
+      <!--</div>-->
+      <!--<button type="submit" class="btn btn-default">Submit</button>-->
+    <!--</form>-->
+  <!--</div>-->
+</div>
+</body>
+<th:block layout:fragment="scripts">
+  <script src="/static/js/hello.js"></script>
+</th:block>
+</html>
