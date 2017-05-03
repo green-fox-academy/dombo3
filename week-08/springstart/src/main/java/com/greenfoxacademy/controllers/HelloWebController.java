@@ -1,7 +1,5 @@
 package com.greenfoxacademy.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.stereotype.Controller;

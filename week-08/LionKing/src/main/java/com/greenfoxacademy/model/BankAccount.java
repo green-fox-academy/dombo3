@@ -1,5 +1,12 @@
 package com.greenfoxacademy.model;
 
-public class BankAccount {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@AllArgsConstructor
+@Getter
+public class BankAccount {
+  private String name;
+  private String balance;
+  private String animalType;
 }
