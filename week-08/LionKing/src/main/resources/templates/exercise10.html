@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Thymeleaf Exercise #</title>
+  <link rel="stylesheet" th:href="@{/style.css}" />
+  <meta charset="utf-8" />
+</head>
+<body>
+  <form th:each="account : ${accounts}" th:method="POST" th:action="@{/click}" th:object="${account}">
+    <label th:text="${account.name}"></label>
+    <p th:text="${account.zebras}"></p>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

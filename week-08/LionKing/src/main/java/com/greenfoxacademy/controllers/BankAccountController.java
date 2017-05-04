@@ -14,6 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class BankAccountController {
 
+  List<BankAccount> animalAccounts = new ArrayList<>();
+
+  @ModelAttribute
+  public void add(Model model) {
+    animalAccounts.add(new BankAccount("Nala",1000, "lion"));
+    animalAccounts.add(new BankAccount("Zordon",500, "lion"));
+    animalAccounts.add(new BankAccount("Mufasa",200, "lion"));
+    animalAccounts.add(new BankAccount("Timon",900, "suricata"));
+    animalAccounts.add(new BankAccount("Pumba",2,"warthog"));
+    model.addAttribute("accounts", animalAccounts);
+  }
+
   @RequestMapping("/exercise1")
   public String bankAccount(Model model) {
     BankAccount account = new BankAccount("Simba", 2000, "lion");
@@ -23,14 +35,21 @@ public class BankAccountController {
 
   @RequestMapping("/exercise5")
   public String accountsArray(Model model) {
-    List<BankAccount> animalAccounts = new ArrayList<>();
-    animalAccounts.add(new BankAccount("Nala",1000, "lion"));
-    animalAccounts.add(new BankAccount("Zordon",500, "lion"));
-    animalAccounts.add(new BankAccount("Mufasa",200, "lion"));
-    animalAccounts.add(new BankAccount("Timon",900, "suricata"));
-    animalAccounts.add(new BankAccount("Pumba",2,"warthog"));
-    model.addAttribute("accounts", animalAccounts);
+    animalAccounts.get(2).setKing(true);
+    animalAccounts.get(1).setGoodGuy(false);
     return "exercise5";
+  }
+
+  @RequestMapping("/exercise10")
+  public String savannaAccountForm(Model model) {
+    return "exercise10";
+  }
+
+  @RequestMapping("/click")
+  public String click(@ModelAttribute BankAccount account) {
+    account.setZebras(10);
+    System.out.println(account.getZebras());
+    return "redirect:exercise10";
   }
 
   @GetMapping("/form")
