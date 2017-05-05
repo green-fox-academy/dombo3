@@ -10,7 +10,9 @@
 <form th:method="POST" th:action="@{/addBankAccount}" th:object="${account}">
   <label>Name:</label>
   <input type="text" th:field="*{name}"/>
+  <label>Balance:</label>
   <input type="text" th:field="*{balance}"/>
+  <label>Animal Type:</label>
   <input type="text" th:field="*{animalType}"/>
   <button type="submit">Add</button>
 </form>
@@ -18,7 +20,6 @@
 <form th:each="account,iter : ${accounts}" th:method="POST" th:action="@{/click?index=} + ${iter.index}" th:object="${account}">
   <label th:text="${account.name}"></label>
   <p th:text="|Zebras: ${account.zebras}|"></p>
-  <!--<p th:text="|ID: ${account.ID}|"></p>-->
   <button type="submit">Add Zebra</button>
 </form>
 

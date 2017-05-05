@@ -32,12 +32,6 @@ public class BankAccountController {
     return "bankAccountView";
   }
 
-  @PostMapping("/click2")
-  public String submitZebra(@ModelAttribute("newAccount") BankAccount newAccount) {
-    newAccount.setZebras(10);
-    return "bankAccountView";
-  }
-
   @ModelAttribute
   public void addAttributes(Model model) {
     model.addAttribute("account", new BankAccount());

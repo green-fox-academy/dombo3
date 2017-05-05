@@ -10,12 +10,10 @@
   <li><a href="/nutritionStore">Nutrition Store</a></li>
   <li><a href="/trickCenter">Trick Center</a></li>
 </ul>
-<form th:action="@{/addTrick}" th:object="${fox}" th:method="POST">
+<form th:action="@{/addTrick}" th:method="POST">
   <label>Food</label>
-  <select>
-    <option th:text="Make coffee" th:value="make coffe">Trick</option>
-    <option th:text="Jump" th:value="jump">Trick</option>
-    <option th:text="Handstand" th:value="handstand">Trick</option>
+  <select  name="trick">
+    <option th:each="trick : ${tricklist}" th:value="${trick.getName()}" th:text="${trick.getName()}">Trick</option>
   </select>
   <label>Drink</label>
   <button type="submit">Learn</button>

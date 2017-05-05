@@ -10,11 +10,15 @@ import lombok.Setter;
 public class Fox {
   private String name;
   private List<String> tricklist;
+  private List<String> unkownList;
   private String food;
   private String drink;
 
 
   public Fox() {
+    this.name = "Mr.Fox";
+    this.food = "pizze";
+    this.drink = "lemonade";
     this.tricklist = new ArrayList<>();
   }
 

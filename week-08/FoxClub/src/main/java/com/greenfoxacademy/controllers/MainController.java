@@ -1,6 +1,7 @@
 package com.greenfoxacademy.controllers;
 
 import com.greenfoxacademy.model.Fox;
+import com.greenfoxacademy.model.Trick;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
+
   @Autowired
   Fox fox;
 
+  Trick trick;
+
   @RequestMapping("/")
   public String getIndex(){
-    fox.setDrink("lemonade");
-    fox.setFood("pizza");
-    fox.setName("Mr.Fox");
     return "index";
   }
 
@@ -40,12 +41,16 @@ public class MainController {
   }
 
   @PostMapping("/addTrick")
-  public String addTrick() {
+  public String addTrick(@RequestParam("trick") String param) {
+    fox.addTrick(param);
     return "index";
   }
 
   @ModelAttribute
   public void addAttributes(Model model) {
     model.addAttribute("fox", fox);
+//    trick.createUnkownList(fox);
+    model.addAttribute("tricklist", trick.trickList);
+//    model.addAttribute("unkowntricklist", fox.getUnkownList());
   }
 }

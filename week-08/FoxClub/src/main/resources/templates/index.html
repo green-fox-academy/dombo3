@@ -15,8 +15,7 @@
   <p th:if="${#lists.size(fox.tricklist) == 0}" th:text="|This is ${fox.name}. Currently living on ${fox.food} and ${fox.drink}. He does not know any tricks yet.|">This is Mr.Fox. Currently living on pizza and lemonade. He knows 2 tricks.</p>
   <h1>Known tricks</h1>
   <ul>
-    <li>write HTML</li>
-    <li>code in Java</li>
+    <li th:each="trick : ${fox.tricklist}" th:text="${trick}">write HTML</li>
   </ul>
 </body>
 </html>
