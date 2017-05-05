@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BankAccountController {
@@ -15,12 +16,8 @@ public class BankAccountController {
   List<BankAccount> accounts = new ArrayList<>();
 
   @PostMapping("/addBankAccount")
-  public String submit(@ModelAttribute("newAccount") BankAccount newAccount, Model model) {
-    model.addAttribute("name", newAccount.getName());
-    model.addAttribute("balance", newAccount.getBalance());
-    model.addAttribute("animalType", newAccount.getAnimalType());
-
-    accounts.add(newAccount);
+  public String addBankAccount(@ModelAttribute("account") BankAccount account) {
+    accounts.add(account);
     return "bankAccountView";
   }
 
@@ -30,14 +27,8 @@ public class BankAccountController {
   }
 
   @PostMapping("/click")
-  public String setZebra(@ModelAttribute("account") BankAccount account) {
-    for (int i = 0; i < accounts.size(); i++) {
-      accounts.get(i).setZebras(10);
-      System.out.println(accounts.get(i).getName());
-      System.out.println(accounts.get(i).getZebras());
-    }
-    System.out.println(account.getName());
-    System.out.println(account.getZebras());
+  public String setZebra(@RequestParam("index") String param) {
+    accounts.get((Integer) Integer.parseInt(param)).addZebra();
     return "bankAccountView";
   }
 
@@ -49,7 +40,7 @@ public class BankAccountController {
 
   @ModelAttribute
   public void addAttributes(Model model) {
-    model.addAttribute("newAccount", new BankAccount());
+    model.addAttribute("account", new BankAccount());
     model.addAttribute("accounts", this.accounts);
   }
 }

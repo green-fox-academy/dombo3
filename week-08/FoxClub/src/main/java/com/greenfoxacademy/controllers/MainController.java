@@ -19,19 +19,28 @@ public class MainController {
     fox.setDrink("lemonade");
     fox.setFood("pizza");
     fox.setName("Mr.Fox");
-    fox.addTrick("hop on corpes");
     return "index";
   }
 
-  @RequestMapping("/nutrition")
+  @RequestMapping("/nutritionStore")
   public String nutritionStore() {
-    return "nutrition";
+    return "nutritionStore";
+  }
+
+  @RequestMapping("/trickCenter")
+  public String trickCenter() {
+    return "trickCenter";
   }
 
   @PostMapping("/addFields")
-  public String add(@RequestParam("food") String food, @RequestParam("drink") String drink) {
+  public String addFields(@RequestParam("food") String food, @RequestParam("drink") String drink) {
     fox.setFood(food);
     fox.setDrink(drink);
+    return "index";
+  }
+
+  @PostMapping("/addTrick")
+  public String addTrick() {
     return "index";
   }
 

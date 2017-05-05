@@ -7,25 +7,19 @@
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/addBankAccount}" th:object="${newAccount}">
+<form th:method="POST" th:action="@{/addBankAccount}" th:object="${account}">
   <label>Name:</label>
   <input type="text" th:field="*{name}"/>
   <input type="text" th:field="*{balance}"/>
   <input type="text" th:field="*{animalType}"/>
-  <button type="submit">Submit</button>
+  <button type="submit">Add</button>
 </form>
 
-<form th:each="account : ${accounts}" th:method="POST" th:action="@{/click}" th:object="${account}">
+<form th:each="account,iter : ${accounts}" th:method="POST" th:action="@{/click?index=} + ${iter.index}" th:object="${account}">
   <label th:text="${account.name}"></label>
-  <p th:text="${account.zebras}"></p>
-  <button type="submit">Submit</button>
-</form>
-
-<form th:object="${newAccount}" th:method="POST" th:action="@{/click2}">
-  <label th:text="*{name}"></label>
-  <p th:text="*{name}"></p>
-  <p th:text="*{zebras}"></p>
-  <button type="submit">Submit</button>
+  <p th:text="|Zebras: ${account.zebras}|"></p>
+  <!--<p th:text="|ID: ${account.ID}|"></p>-->
+  <button type="submit">Add Zebra</button>
 </form>
 
 </body>
