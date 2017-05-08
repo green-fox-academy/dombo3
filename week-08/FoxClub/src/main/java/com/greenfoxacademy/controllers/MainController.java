@@ -50,6 +50,7 @@ public class MainController {
   public void addAttributes(Model model) {
     model.addAttribute("fox", fox);
 //    trick.createUnkownList(fox);
+//    System.out.print(fox.getUnKnownList().size());
     model.addAttribute("tricklist", trick.trickList);
 //    model.addAttribute("unkowntricklist", fox.getUnkownList());
   }

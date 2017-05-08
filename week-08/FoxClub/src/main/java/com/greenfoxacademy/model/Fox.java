@@ -10,7 +10,7 @@ import lombok.Setter;
 public class Fox {
   private String name;
   private List<String> tricklist;
-  private List<String> unkownList;
+  private List<String> unKnownList;
   private String food;
   private String drink;
 
@@ -20,11 +20,13 @@ public class Fox {
     this.food = "pizze";
     this.drink = "lemonade";
     this.tricklist = new ArrayList<>();
+    this.unKnownList = new ArrayList<>();
   }
 
   public Fox(String name, String food, String drink) {
     this.name = name;
     this.tricklist = new ArrayList<>();
+    this.unKnownList = new ArrayList<>();
     this.food = food;
     this.drink = drink;
   }
@@ -32,4 +34,5 @@ public class Fox {
   public void addTrick(String trick) {
     tricklist.add(trick);
   }
+
 }

@@ -13,28 +13,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class BankAccountController {
 
-  List<BankAccount> accounts = new ArrayList<>();
+  List<BankAccount> accounts = new ArrayList<>(); // 1
 
-  @PostMapping("/addBankAccount")
+  @PostMapping("/addBankAccount") // 5
   public String addBankAccount(@ModelAttribute("account") BankAccount account) {
-    accounts.add(account);
+    accounts.add(account); // empty account
     return "bankAccountView";
   }
 
-  @GetMapping("/addBankAccount")
+  @GetMapping("/addBankAccount") // 3
   public String view() {
     return "bankAccountView";
   }
 
-  @PostMapping("/click")
+  @PostMapping("/click") // 6
   public String setZebra(@RequestParam("index") String param) {
     accounts.get((Integer) Integer.parseInt(param)).addZebra();
     return "bankAccountView";
   }
 
-  @ModelAttribute
+  @ModelAttribute // 2 Fill Modell       // 4 new BankAccount   Again!!!
   public void addAttributes(Model model) {
+    model.addAttribute("accounts", accounts);
     model.addAttribute("account", new BankAccount());
-    model.addAttribute("accounts", this.accounts);
   }
 }

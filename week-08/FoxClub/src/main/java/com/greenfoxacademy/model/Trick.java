@@ -12,17 +12,18 @@ public enum Trick {
   public int ID;
   public static List<Trick> trickList = Arrays.asList(Trick.values());
 
-Trick(int ID, String name) {
-  this.name = name;
-  this.ID = ID;
-}
+  Trick(int ID, String name) {
+    this.name = name;
+    this.ID = ID;
+  }
 
-public void createUnkownList(Fox fox) {
-  for (Trick trick : trickList) {
-    for (String knownTrick : fox.getTricklist())
-    if (trick.getName() != knownTrick) {
-      fox.getUnkownList().add(trick.getName());
+  public void createUnkownList(Fox fox) {
+    for (Trick trick : trickList) {
+      for (String knownTrick : fox.getTricklist()) {
+        if (trick.getName().equals(knownTrick)) {
+          fox.getUnKnownList().add(trick.getName());
+        }
+      }
     }
   }
-}
 }

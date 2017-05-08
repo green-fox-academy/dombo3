@@ -7,8 +7,8 @@
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/addBankAccount}" th:object="${account}">
-  <label>Name:</label>
+<form th:method="POST" th:action="@{/addBankAccount}" th:object="${account}"> <!--new BankAccount() EMPTY-->
+  <label>Name:</label>                             <!--Set FIELDS IN THYMELEAF-->
   <input type="text" th:field="*{name}"/>
   <label>Balance:</label>
   <input type="text" th:field="*{balance}"/>
@@ -16,7 +16,7 @@
   <input type="text" th:field="*{animalType}"/>
   <button type="submit">Add</button>
 </form>
-
+                                                    <!--SHOW ACCOUNT IF ANY IS IN THE LIST-->
 <form th:each="account,iter : ${accounts}" th:method="POST" th:action="@{/click?index=} + ${iter.index}" th:object="${account}">
   <label th:text="${account.name}"></label>
   <p th:text="|Zebras: ${account.zebras}|"></p>
