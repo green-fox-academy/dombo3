@@ -11,19 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreeterController {
 
   @GetMapping("/greeter")
-  public Greet greet(@RequestParam("name") String name,@RequestParam("student") String student) {
-    return new Greet("Oh, hi there " + name + ", my dear " + student + "!");
+  public Greet greet(@RequestParam("name") String name,@RequestParam("title") String title) {
+    return new Greet("Oh, hi there " + name + ", my dear " + title + "!");
   }
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
   public GreetErrorMessage GreetError(MissingServletRequestParameterException ex) {
-    GreetErrorMessage error = null;
-    if (ex.getParameterName().equals("name")) {
-       error = new GreetErrorMessage("Please provide a name!");
-    } else if (ex.getParameterName().equals("student")) {
-      error = new GreetErrorMessage("Please provide a student!");
-    }
-    return error;
+    return new GreetErrorMessage("Please provide a " + ex.getParameterName() + "!");
   }
 
 }
