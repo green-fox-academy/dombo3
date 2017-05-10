@@ -4,8 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class Todo {
 
   @Id
@@ -17,8 +21,10 @@ public class Todo {
 
   public Todo() {}
 
-  public Todo(String title) {
+  public Todo(String title, boolean isUrgent, boolean isDone) {
     this.title = title;
+    this.isUrgent = isUrgent;
+    this.isDone = isDone;
   }
 
   @Override

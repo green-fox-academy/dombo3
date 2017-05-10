@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/todo")
@@ -17,9 +18,13 @@ public class TodoController {
     this.todoRepo = todoRepo;
   }
 
-  @RequestMapping(value = {"/","/list"})
-  public String list(Model model) {
-    model.addAttribute("todos", todoRepo.findAll());
+  @RequestMapping(value = {"/","/list",""})
+  public String list(Model model,@RequestParam(value = "isActive", required = false, defaultValue = "false") String isActive) {
+    if (isActive.equals("true")) {
+      model.addAttribute("todos", todoRepo.findAllByisDoneTrue());
+    } else {
+      model.addAttribute("todos", todoRepo.findAll());
+    }
     return "todo";
   }
 }

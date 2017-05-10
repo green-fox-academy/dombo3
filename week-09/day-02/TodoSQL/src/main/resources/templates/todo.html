@@ -6,8 +6,17 @@
 </head>
 <body>
   <h1>Todos for today</h1>
-  <ul>
-    <li th:each="mytodo : ${todos}" th:text="${mytodo}"></li>
-  </ul>
+  <table border="1">
+      <th>ID</th>
+      <th>ACTION</th>
+      <th>DONE</th>
+      <th>URGENT</th>
+    <tr th:each="mytodo : ${todos}">
+      <td th:text="${mytodo.Id}"></td>
+      <td th:text="${mytodo.title}"></td>
+      <td th:text="${mytodo.Urgent}"></td>
+      <td th:text="${mytodo.Done}"></td>
+    </tr>
+  </table>
 </body>
 </html>
