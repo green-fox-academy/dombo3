@@ -17,7 +17,6 @@ public class PostController {
   PostRepository postRepository;
   Posts posts;
 
-  @Autowired
   public PostController(PostRepository postRepository) {
     this.postRepository = postRepository;
     this.posts = new Posts();
@@ -36,17 +35,19 @@ public class PostController {
     return post;
   }
 
-//  @PutMapping("/posts/{id}/upvote")
-//  public Post upvotePost(@PathVariable("id") long Id) {
-//    Post post = postRepository.findOne(Id);
-//    post.upvote();
-//    return post;
-//  }
-//
-//  @PutMapping("/posts/{id}/downvote")
-//  public Post downvotePost(@PathVariable("id") long Id) {
-//    Post post = postRepository.findOne(Id);
-//    post.downvote();
-//    return post;
-//  }
+  @PutMapping("/posts/{id}/upvote")
+  public Post upvotePost(@PathVariable("id") long Id) {
+    Post post = postRepository.findOne(Id);
+    post.upvote();
+    postRepository.save(post);
+    return post;
+  }
+
+  @PutMapping("/posts/{id}/downvote")
+  public Post downvotePost(@PathVariable("id") long Id) {
+    Post post = postRepository.findOne(Id);
+    post.downvote();
+    postRepository.save(post);
+    return post;
+  }
 }
