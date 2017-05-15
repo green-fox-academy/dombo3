@@ -1,10 +1,10 @@
 package com.example.greenfoxacademy.model;
 
-public class Message {
+public class GrootGreet {
   private String received;
   private String translated;
 
-  public Message(String received) {
+  public GrootGreet(String received) {
     this.received = received;
     this.translated = "I am Groot!";
   }

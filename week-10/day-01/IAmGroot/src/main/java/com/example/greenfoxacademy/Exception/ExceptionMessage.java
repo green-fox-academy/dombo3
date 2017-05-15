@@ -1,4 +1,4 @@
-package com.example.greenfoxacademy;
+package com.example.greenfoxacademy.Exception;
 
 public class ExceptionMessage {
   private String error;
