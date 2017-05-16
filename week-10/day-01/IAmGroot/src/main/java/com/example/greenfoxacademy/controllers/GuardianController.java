@@ -1,9 +1,11 @@
 package com.example.greenfoxacademy.controllers;
 
-import com.example.greenfoxacademy.Exception.ExceptionMessage;
-import com.example.greenfoxacademy.Exception.OverLoadExceptionMessage;
-import com.example.greenfoxacademy.Exception.OverLoadRocketException;
+import com.example.greenfoxacademy.exception.ExceptionMessage;
+import com.example.greenfoxacademy.exception.OverLoadExceptionMessage;
+import com.example.greenfoxacademy.exception.OverLoadRocketException;
 import com.example.greenfoxacademy.model.CargoStatus;
+import com.example.greenfoxacademy.model.DraxCalorieTable;
+import com.example.greenfoxacademy.model.DraxFood;
 import com.example.greenfoxacademy.model.GrootGreet;
 import com.example.greenfoxacademy.model.RocketShipRora;
 import com.example.greenfoxacademy.model.YundusArrow;
@@ -19,6 +21,9 @@ public class GuardianController {
 
   @Autowired
   RocketShipRora rocketShipRora;
+
+  @Autowired
+  DraxCalorieTable draxCalorieTable;
 
   @GetMapping("/groot")
   public GrootGreet greet(@RequestParam String input) {
@@ -43,6 +48,18 @@ public class GuardianController {
     return rocketShipRora.getStatus(caliber,amount);
   }
 
+  @GetMapping("/drax")
+  public DraxCalorieTable getDraxCalorieTable() {
+    return draxCalorieTable;
+  }
+
+  @GetMapping("/drax/add")
+  public DraxFood addDraxFood(@RequestParam String name, @RequestParam double amount, @RequestParam double calorie) {
+    DraxFood draxFood = new DraxFood(name,amount,calorie);
+    draxCalorieTable.add(draxFood);
+    return draxFood;
+  }
+
   @ExceptionHandler(MissingServletRequestParameterException.class)
   public ExceptionMessage GuradianException() {
     return new ExceptionMessage("I am Groot!");
@@ -52,5 +69,4 @@ public class GuardianController {
   public OverLoadExceptionMessage OverLoadRocketException() {
     return new OverLoadExceptionMessage("Cannot load more than 12500 ammo to Rora's cargo");
   }
-
 }

@@ -99,4 +99,24 @@ public class GuardianControllerTest {
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.shipstatus").value("80.0%"));
   }
+
+  @Test public void DraxEnd_EmptyCalorieTable() throws Exception {
+    mockMvc.perform(get("/drax"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.foods").isArray());
+  }
+
+  @Test public void DraxEnd_AddDraxFood() throws Exception {
+    mockMvc.perform(get("/drax/add?name=meat&amount=100.0&calorie=455.0"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.name").value("meat"));
+  }
+
+  @Test public void DraxEnd_GetFilledCalorieTable() throws Exception {
+    mockMvc.perform(get("/drax/add?name=meat&amount=100.0&calorie=455.0"));
+    mockMvc.perform(get("/drax"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.foods.name").value("meat"));
+  }
+
 }

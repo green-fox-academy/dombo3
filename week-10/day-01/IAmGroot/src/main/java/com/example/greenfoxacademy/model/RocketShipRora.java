@@ -1,6 +1,6 @@
 package com.example.greenfoxacademy.model;
 
-import com.example.greenfoxacademy.Exception.OverLoadRocketException;
+import com.example.greenfoxacademy.exception.OverLoadRocketException;
 import org.springframework.stereotype.Component;
 
 @Component

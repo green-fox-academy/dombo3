@@ -1,4 +1,4 @@
-package com.example.greenfoxacademy.Exception;
+package com.example.greenfoxacademy.exception;
 
 public class OverLoadExceptionMessage {
     private String error;
