@@ -1,6 +1,8 @@
 package com.greenfox.todosql.controllers;
 
+import com.greenfox.todosql.model.Account;
 import com.greenfox.todosql.model.Todo;
+import com.greenfox.todosql.repository.AccountRepository;
 import com.greenfox.todosql.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class TodoController {
 
   TodoRepository todoRepo;
+  AccountRepository accountRepo;
 
   @Autowired
-  public TodoController(TodoRepository todoRepo) {
+  public TodoController(TodoRepository todoRepo, AccountRepository accountRepo) {
     this.todoRepo = todoRepo;
+    this.accountRepo = accountRepo;
   }
 
   @RequestMapping(value = "/todo")
@@ -63,6 +67,29 @@ public class TodoController {
     todo.setUrgent(urgent);
     todo.setDone(done);
     todoRepo.save(todo);
+    return "redirect:/todo";
+  }
+
+  @GetMapping(value = "/signup")
+  public String getSignUp() {
+    return "signup";
+  }
+
+  @PostMapping(value = "/signup")
+  public String signup(@RequestParam(name="username") String username, @RequestParam(name="password") String password) {
+    accountRepo.save(new Account(username,password));
+    return "redirect:/login";
+  }
+
+  @GetMapping(value = "/login")
+  public String getLogin() {
+    return "login";
+  }
+
+  @PostMapping(value = "/login")
+  public String login(@RequestParam(name="username") String username, @RequestParam(name="password") String password) {
+    // validate user
+    //exception handling if user not found
     return "redirect:/todo";
   }
 }
