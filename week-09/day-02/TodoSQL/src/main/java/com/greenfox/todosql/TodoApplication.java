@@ -8,7 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TodoApplication implements CommandLineRunner {
+public class TodoApplication {
 
 	@Autowired
 	TodoRepository todoRepository;
@@ -17,11 +17,4 @@ public class TodoApplication implements CommandLineRunner {
 		SpringApplication.run(TodoApplication.class, args);
 	}
 
-
-	@Override
-	public void run(String... args) throws Exception {
-		todoRepository.save(new Todo("I have to learn Object Relational Mapping",false,false));
-		todoRepository.save(new Todo("Another todo",true,true));
-		todoRepository.save(new Todo("Todo again",true,true));
-	}
 }

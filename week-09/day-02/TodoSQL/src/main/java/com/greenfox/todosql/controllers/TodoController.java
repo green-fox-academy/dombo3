@@ -27,17 +27,19 @@ public class TodoController {
   }
 
   @RequestMapping(value = "/todo")
-  public String list(Model model,@RequestParam(value = "isActive", required = false, defaultValue = "false") String isActive) {
+  public String list(Model model, @RequestParam(value = "isActive", required = false, defaultValue = "false") String isActive) {
+    Account account = (Account) model.asMap().get("account");
     if (isActive.equals("true")) {
       model.addAttribute("todos", todoRepo.findAllByisDoneTrue());
     } else {
-      model.addAttribute("todos", todoRepo.findAll());
+      model.addAttribute("todos", todoRepo.findAllByAccountUsername("dombo3"));
     }
     return "todo";
   }
 
   @GetMapping(value = "/todo/add")
   public String getAddForm(Model model) {
+    Account account = (Account) model.asMap().get("account");
     model.addAttribute("todo", new Todo());
     return "add";
   }
@@ -87,9 +89,10 @@ public class TodoController {
   }
 
   @PostMapping(value = "/login")
-  public String login(@RequestParam(name="username") String username, @RequestParam(name="password") String password) {
+  public String login(Model model, @RequestParam(name="username") String username, @RequestParam(name="password") String password) {
     // validate user
     //exception handling if user not found
+    model.addAttribute("account", accountRepo.findByUsername(username));
     return "redirect:/todo";
   }
 }
