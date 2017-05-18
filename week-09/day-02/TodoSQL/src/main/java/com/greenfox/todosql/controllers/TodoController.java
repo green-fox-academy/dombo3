@@ -4,6 +4,10 @@ import com.greenfox.todosql.model.Account;
 import com.greenfox.todosql.model.Todo;
 import com.greenfox.todosql.repository.AccountRepository;
 import com.greenfox.todosql.repository.TodoRepository;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +17,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 @Controller
 public class TodoController {
-
+  AccountController accountController;
   TodoRepository todoRepo;
   AccountRepository accountRepo;
 
@@ -28,19 +33,22 @@ public class TodoController {
 
   @RequestMapping(value = "/todo")
   public String list(Model model, @RequestParam(value = "isActive", required = false, defaultValue = "false") String isActive) {
-    Account account = (Account) model.asMap().get("account");
     if (isActive.equals("true")) {
       model.addAttribute("todos", todoRepo.findAllByisDoneTrue());
     } else {
-      model.addAttribute("todos", todoRepo.findAllByAccountUsername("dombo3"));
+      model.addAttribute("todos", todoRepo.findAll());
+//      model.addAttribute("todos", todoRepo.findAllByAccountUsername("dombo3"));
     }
+
+    System.out.println(accountController.getAccount().getUsername() + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
     return "todo";
   }
 
   @GetMapping(value = "/todo/add")
   public String getAddForm(Model model) {
-    Account account = (Account) model.asMap().get("account");
-    model.addAttribute("todo", new Todo());
+//    Account account = (Account) model.asMap().get("account");
+    model.addAttribute("todo", new Todo(accountController.getAccount()));
     return "add";
   }
 
@@ -91,8 +99,9 @@ public class TodoController {
   @PostMapping(value = "/login")
   public String login(Model model, @RequestParam(name="username") String username, @RequestParam(name="password") String password) {
     // validate user
-    //exception handling if user not found
+    // exception handling if user not found
     model.addAttribute("account", accountRepo.findByUsername(username));
+    accountController.setAccount(accountRepo.findByUsername(username));
     return "redirect:/todo";
   }
 }

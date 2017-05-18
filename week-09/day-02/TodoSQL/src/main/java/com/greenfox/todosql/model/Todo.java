@@ -24,6 +24,10 @@ public class Todo {
 
   public Todo() {}
 
+  public Todo(Account account) {
+    this.account = account;
+  }
+
   public Todo(Account account, String title, boolean isUrgent, boolean isDone) {
     this.account = account;
     this.title = title;
