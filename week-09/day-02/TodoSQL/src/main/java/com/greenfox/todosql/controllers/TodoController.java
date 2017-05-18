@@ -36,24 +36,21 @@ public class TodoController {
     if (isActive.equals("true")) {
       model.addAttribute("todos", todoRepo.findAllByisDoneTrue());
     } else {
-      model.addAttribute("todos", todoRepo.findAll());
-//      model.addAttribute("todos", todoRepo.findAllByAccountUsername("dombo3"));
+      model.addAttribute("todos", todoRepo.findAllByAccountUsername("dombo3"));
     }
-
-    System.out.println(accountController.getAccount().getUsername() + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-
     return "todo";
   }
 
   @GetMapping(value = "/todo/add")
   public String getAddForm(Model model) {
-//    Account account = (Account) model.asMap().get("account");
-    model.addAttribute("todo", new Todo(accountController.getAccount()));
+    model.addAttribute("todo", new Todo());
     return "add";
   }
 
   @PostMapping(value = "/todo/add")
   public String add(@ModelAttribute Todo todo) {
+    System.out.println(accountController.getAccount().getUsername());
+    todo.setAccount(accountController.getAccount());
     todoRepo.save(todo);
     return "redirect:/todo";
   }
@@ -87,7 +84,16 @@ public class TodoController {
 
   @PostMapping(value = "/signup")
   public String signup(@RequestParam(name="username") String username, @RequestParam(name="password") String password) {
+//    List<Account> accounts = (List)accountRepo.findAll();
     accountRepo.save(new Account(username,password));
+
+//    for (int i=0; i < accounts.size(); i++) {
+//      if (accounts.get(i).getUsername().equals(username)) {
+//        System.out.println("This username is not allowed. Please try another one");
+//        return "redirect:/signup";
+//      } else {
+//      }
+//    }
     return "redirect:/login";
   }
 
