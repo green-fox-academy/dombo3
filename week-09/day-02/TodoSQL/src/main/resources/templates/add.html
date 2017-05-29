@@ -1,14 +1,19 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template">
 <head>
   <title>TodoList</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1>Add new todo</h1>
-<form action="#" th:action="@{/todo/add}" th:object="${todo}" method="post">
-  <p>New Todo: <input type="text" th:field="*{title}"/></p>
-  <input type="submit"/>
-</form>
+<section layout:fragment="content">
+  <h1>Add new todo</h1>
+  <form action="#" th:action="@{/todo/add}" th:object="${todo}" method="post">
+    <p>New Todo: <input type="text" th:field="*{title}"/></p>
+    <input type="submit"/>
+  </form>
+</section>
 </body>
 </html>

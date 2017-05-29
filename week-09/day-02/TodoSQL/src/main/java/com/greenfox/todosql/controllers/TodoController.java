@@ -29,6 +29,7 @@ public class TodoController {
 
   @RequestMapping(value = "/todo")
   public String list(Model model, @RequestParam(value = "isActive", required = false, defaultValue = "false") String isActive) {
+    model.addAttribute("account", accountService.getAccount());
     if (isActive.equals("true")) {
       model.addAttribute("todos", todoRepo.findAllByisDoneTrue());
     } else {

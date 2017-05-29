@@ -1,15 +1,20 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template">
 <head>
   <title>TodoList</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1>Login Page</h1>
-<form action="#" th:action="@{/login}" method="post">
-  <p>Username: <input type="text" name="username"/></p>
-  <p>Password: <input type="text" name="password"/></p>
-  <input type="submit"/>
-</form>
+<section layout:fragment="content">
+  <h1>Login Page</h1>
+  <form action="#" th:action="@{/login}" method="post">
+    <p>Username: <input type="text" name="username"/></p>
+    <p>Password: <input type="password" name="password"/></p>
+    <input type="submit"/>
+  </form>
+</section>
 </body>
 </html>

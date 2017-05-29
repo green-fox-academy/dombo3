@@ -29,5 +29,6 @@ dependencies {
 	runtime('com.h2database:h2')
 	runtime('mysql:mysql-connector-java')
 	compileOnly('org.projectlombok:lombok')
+	compile('org.webjars:bootstrap:3.3.6')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
