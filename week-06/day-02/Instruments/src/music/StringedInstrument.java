@@ -1,17 +1,16 @@
 package music;
 
-public class StringedInstrument extends Instrument {
+public abstract class StringedInstrument extends Instrument {
   protected int numberOfStrings;
   final String formatForPlay = "%s, a %d-stringed instrument that %s\n";
 
-  public StringedInstrument() {
+  public StringedInstrument() {};
+
+  public StringedInstrument(int numberOfStrings, String name, String voice) {
+    super(name, voice);
+    this.numberOfStrings = numberOfStrings;
   }
 
-  public StringedInstrument(int myString) {
-    this.numberOfStrings = myString;
-  }
-
-  @Override
   public void play() {
    System.out.printf(formatForPlay,name,numberOfStrings,voice);
   }

@@ -7,9 +7,7 @@ public class ElectricGuitar extends StringedInstrument {
     this.voice = "Twang";
   }
 
-  public ElectricGuitar(int string) {
-    super(string);
-    this.name = "ElectricGuitar";
-    this.voice = "Twang";
+  public ElectricGuitar(int numberOfStrings, String name, String voice) {
+    super(numberOfStrings, name, voice);
   }
 }
