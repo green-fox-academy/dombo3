@@ -25,7 +25,6 @@ public class BankAccountController {
 
   @ModelAttribute
   public void add(Model model) {
-
     model.addAttribute("accounts", bankAccounts.getAccounts());
   }
 
@@ -40,6 +39,7 @@ public class BankAccountController {
   public String accountsArray(Model model) {
     bankAccounts.getAccounts().get(2).setKing(true);
     bankAccounts.getAccounts().get(1).setGoodGuy(false);
+    model.addAttribute("newaccount", new BankAccount());
     return "exercise5";
   }
 
@@ -60,6 +60,12 @@ public class BankAccountController {
     BankAccount account = bankAccounts.getAccounts().get(Integer.parseInt(index));
     float balance = account.getBalance();
     account.setBalance(balance + 10);
+    return "redirect:/exercise5";
+  }
+
+  @PostMapping("/add")
+  public String add(@ModelAttribute("newaccount") BankAccount account) {
+    bankAccounts.getAccounts().add(account);
     return "exercise5";
   }
 

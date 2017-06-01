@@ -29,12 +29,6 @@
         <input type="submit" value="Rasie by 10"/>
       </form>
     </td>
-    <!--<td  th:action="@{/click2?index=} + ${accountStat.index}" method="post" th:object="${account}">-->
-      <!--<form th:action="@{/click2?index=} + ${accountStat.index}" method="post">-->
-        <!--<input th:text="${account.name}"/>-->
-        <!--<input type="submit" value="Set account.name"/>-->
-      <!--</form>-->
-    <!--</td>-->
   </tr>
   </tbody>
 </table>
@@ -46,5 +40,14 @@
     <!--<p th:case="false">A baaad baaad guy</p>-->
   <!--</div>-->
 <!--</ul>-->
+<form th:action="@{/add}" method="post" th:object="${newaccount}">
+  <label>Name</label>
+  <input th:type="text" th:field="*{name}"/>
+  <label>Balance</label>
+  <input th:type="text" th:field="*{balance}"/>
+  <label>Type</label>
+  <input th:type="text" th:field="*{animalType}"/>
+  <input type="submit" value="New Account"/>
+</form>
 </body>
 </html>
