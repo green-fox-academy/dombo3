@@ -1,5 +1,8 @@
 package com.greenfoxacademy.controllers;
 
+import com.greenfoxacademy.Greeting;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.stereotype.Controller;
@@ -20,14 +23,28 @@ public class HelloWebController {
 
   @RequestMapping("/web/greeting")
   public String greeting(Model model, @RequestParam(value = "name", defaultValue = "World", required = false) String name) {
-    Random rand = new Random();
-    int random = rand.nextInt(4);
+
+    List<Greeting> greetings = new ArrayList<>();
+    for (String hello : hellos) {
+      greetings.add(new Greeting(id.incrementAndGet(),hello,getRandomColor(),getRandomSize()));
+    }
 
     model.addAttribute("name", name);
     model.addAttribute("counter", id.incrementAndGet());
-    model.addAttribute("hellos", hellos);
-    model.addAttribute("font", fonts[random]);
-    model.addAttribute("color", colors[random]);
+    model.addAttribute("greetings", greetings);
     return "greeting";
+  }
+
+  public String getRandomColor() {
+    Random rand = new Random();
+    int r = rand.nextInt(255);
+    int g = rand.nextInt(255);
+    int b = rand.nextInt(255);
+    return "rgb(" + r + "," + g + "," + b + ")";
+  }
+
+  public int getRandomSize() {
+    int rand = (int) (Math.random() * 100) + 8;
+    return rand;
   }
 }

@@ -8,8 +8,6 @@
 <body>
 <h1> HellooBElllooo</h1>
 <p th:text="'Hello, ' + ${name} + '! This site was loaded ' +  ${counter} + ' times since last server start'"/>
-<h1 th:each="hello : ${hellos}">
-    <span th:style="'font-size:' + ${font} + 'px;color:' + ${color} + ';'" th:text="${hello}">1</span>
-</h1>
+<p th:each="greeting : ${greetings}" th:text="|${greeting.content} ${name}! |" th:style="'font-size:' + ${greeting.size} + 'px;color:' + ${greeting.color} + ';' + 'display: inline;'"></p>
 </body>
 </html>
