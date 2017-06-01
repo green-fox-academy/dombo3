@@ -1,29 +1,32 @@
 package com.greenfoxacademy.controllers;
 
 import com.greenfoxacademy.model.BankAccount;
+import com.greenfoxacademy.model.BankAccounts;
 import com.greenfoxacademy.model.Result;
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BankAccountController {
 
-  List<BankAccount> animalAccounts = new ArrayList<>();
+  BankAccounts bankAccounts;
+
+  @Autowired
+  public BankAccountController(BankAccounts bankAccounts) {
+    this.bankAccounts = bankAccounts;
+  }
 
   @ModelAttribute
   public void add(Model model) {
-    animalAccounts.add(new BankAccount("Nala",1000, "lion"));
-    animalAccounts.add(new BankAccount("Zordon",500, "lion"));
-    animalAccounts.add(new BankAccount("Mufasa",200, "lion"));
-    animalAccounts.add(new BankAccount("Timon",900, "suricata"));
-    animalAccounts.add(new BankAccount("Pumba",2,"warthog"));
-    model.addAttribute("accounts", animalAccounts);
+
+    model.addAttribute("accounts", bankAccounts.getAccounts());
   }
 
   @RequestMapping("/exercise1")
@@ -35,8 +38,8 @@ public class BankAccountController {
 
   @RequestMapping("/exercise5")
   public String accountsArray(Model model) {
-    animalAccounts.get(2).setKing(true);
-    animalAccounts.get(1).setGoodGuy(false);
+    bankAccounts.getAccounts().get(2).setKing(true);
+    bankAccounts.getAccounts().get(1).setGoodGuy(false);
     return "exercise5";
   }
 
@@ -50,6 +53,14 @@ public class BankAccountController {
     account.setZebras(10);
     System.out.println(account.getZebras());
     return "redirect:exercise10";
+  }
+
+  @PostMapping("/click2")
+  public String click2(@RequestParam("index") String index) {
+    BankAccount account = bankAccounts.getAccounts().get(Integer.parseInt(index));
+    float balance = account.getBalance();
+    account.setBalance(balance + 10);
+    return "exercise5";
   }
 
   @GetMapping("/form")

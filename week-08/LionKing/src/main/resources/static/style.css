@@ -1,3 +1,11 @@
 .king {
-  color: green;
+  color: blue;
+}
+
+h1, p, h2 {
+  display: inline;
+}
+
+h2 {
+  color: turquoise;
 }

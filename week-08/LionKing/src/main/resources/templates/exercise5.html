@@ -2,17 +2,49 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Thymeleaf Exercise #</title>
-  <link rel="stylesheet" th:href="@{/style.css}" />
-  <meta charset="utf-8" />
+  <link rel="stylesheet" th:href="@{/style.css}"/>
+  <meta charset="utf-8"/>
 </head>
 <body>
-  <ul th:each="account : ${accounts}">
-    <li th:text="${account.name}" th:class="${account.king}? 'king' : ''"></li>
-    <li th:text="${accountStat.index}"></li>
-    <li th:if="${not account.goodGuy}" th:text="'I am a bad Guy'"></li>
-    <div th:switch="${account.goodGuy}">
-      <p th:case="false">A baaad baaad guy</p>
-    </div>
-  </ul>
+<table border="1" style="width:300px">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Index</th>
+    <th>Balance</th>
+    <th>Type</th>
+    <th>Raise Zebras</th>
+    <th>With</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="account : ${accounts}">
+    <td th:text="${account.name}" th:class="${account.king}? 'king' : ''">One</td>
+    <td th:text="${accountStat.index}">Two</td>
+    <td th:text="${account.balance}"></td>
+    <!--<td th:if="${not account.goodGuy}" th:text="'I am a bad Guy'">Three</td>-->
+    <td th:text="${account.goodGuy}? 'Good Guy':'Bad Guy'">Three</td>
+    <td>
+      <form th:action="@{/click2?index=} + ${accountStat.index}" method="post">
+        <input type="submit" value="Rasie by 10"/>
+      </form>
+    </td>
+    <!--<td  th:action="@{/click2?index=} + ${accountStat.index}" method="post" th:object="${account}">-->
+      <!--<form th:action="@{/click2?index=} + ${accountStat.index}" method="post">-->
+        <!--<input th:text="${account.name}"/>-->
+        <!--<input type="submit" value="Set account.name"/>-->
+      <!--</form>-->
+    <!--</td>-->
+  </tr>
+  </tbody>
+</table>
+<!--<ul th:each="account : ${accounts}">-->
+  <!--<li th:text="${account.name}" th:class="${account.king}? 'king' : ''"></li>-->
+  <!--<li th:text="${accountStat.index}"></li>-->
+  <!--<li th:if="${not account.goodGuy}" th:text="'I am a bad Guy'"></li>-->
+  <!--<div th:switch="${account.goodGuy}">-->
+    <!--<p th:case="false">A baaad baaad guy</p>-->
+  <!--</div>-->
+<!--</ul>-->
 </body>
 </html>

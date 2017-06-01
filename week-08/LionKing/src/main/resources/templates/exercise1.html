@@ -7,7 +7,7 @@
 </head>
 <body>
   <h1 th:text="${bankaccount.name}">Exercise1</h1>
-  <h1 th:text="|${#numbers.formatDecimal(bankaccount.balance,2,2,'POINT')} Zebra|">Exercise1</h1>
-  <h1 th:text="${bankaccount.animalType}">Exercise1</h1>
+  <p id="balance" th:text="| balance: ${#numbers.formatDecimal(bankaccount.balance,2,2,'POINT')} Zebra |">Exercise1</p>
+  <h2 th:text="${bankaccount.animalType}">Exercise1</h2>
 </body>
 </html>
