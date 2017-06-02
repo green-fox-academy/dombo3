@@ -28,28 +28,18 @@
         <td>450</td>
         <td>
           <form method="get">
-            <input type="button" value="Edit"/>
+            <input type="submit" value="Edit"/>
           </form>
         </td>
         <td>
           <form method="post">
-            <input type="button" value="Delete"/>
+            <input type="submit" value="Delete"/>
           </form>
         </td>
       </tr>
     </tbody>
   </table>
-  <form method="post">
-    <label>Date</label>
-    <input type="date"/>
-    <label>Type</label>
-    <select name="type">
-      <option th:each="foodtype : ${foodtypes}" value = "${foodtype.type}" th:text="${foodtype}">Breakfast</option>
-    </select>
-    <label>Description</label>
-    <input type="text"/>
-    <label>Calories</label>
-    <input type="number"/>
+  <form method="get" th:action="@{/edit}">
     <input type="submit" value="Add a new meal"/>
   </form>
 </body>
