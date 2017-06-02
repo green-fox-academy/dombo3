@@ -44,7 +44,7 @@
     <input type="date"/>
     <label>Type</label>
     <select name="type">
-      <option value="breakfast">Breakfast</option>
+      <option th:each="foodtype : ${foodtypes}" value = "${foodtype.type}" th:text="${foodtype}">Breakfast</option>
     </select>
     <label>Description</label>
     <input type="text"/>
