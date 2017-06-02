@@ -7,5 +7,50 @@
 </head>
 <body>
   <h1 th:text="CalorieTable"></h1>
+  <p>Number of meals:</p>
+  <p>Total Calories:</p>
+  <table border="1" style="width:500px">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Calories</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2017-06-03</td>
+        <td>Breakfast</td>
+        <td>Scrumbled Eggs</td>
+        <td>450</td>
+        <td>
+          <form method="get">
+            <input type="button" value="Edit"/>
+          </form>
+        </td>
+        <td>
+          <form method="post">
+            <input type="button" value="Delete"/>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <form method="post">
+    <label>Date</label>
+    <input type="date"/>
+    <label>Type</label>
+    <select name="type">
+      <option value="breakfast">Breakfast</option>
+    </select>
+    <label>Description</label>
+    <input type="text"/>
+    <label>Calories</label>
+    <input type="number"/>
+    <input type="submit" value="Add a new meal"/>
+  </form>
 </body>
 </html>
