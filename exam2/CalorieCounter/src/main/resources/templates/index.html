@@ -21,11 +21,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>2017-06-03</td>
-        <td>Breakfast</td>
-        <td>Scrumbled Eggs</td>
-        <td>450</td>
+      <tr th:each="food : ${foods}">
+        <td th:text="${food.date}">2017-06-03</td>
+        <td th:text="${food.type}">Breakfast</td>
+        <td th:text="${food.description}">Scrumbled Eggs</td>
+        <td th:text="${food.calories}">450</td>
         <td>
           <form method="get">
             <input type="submit" value="Edit"/>

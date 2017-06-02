@@ -1,6 +1,7 @@
 package com.greenfox.controllers;
 
 import com.greenfox.model.Foodtype;
+import com.greenfox.repository.FoodRepo;
 import com.greenfox.repository.FoodtypeRepo;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,16 +10,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CalorieController {
 
   FoodtypeRepo foodtypeRepo;
+  FoodRepo foodRepo;
 
   @Autowired
-  public CalorieController(FoodtypeRepo foodtypeRepo) {
+  public CalorieController(FoodtypeRepo foodtypeRepo, FoodRepo foodRepo) {
     this.foodtypeRepo = foodtypeRepo;
+    this.foodRepo = foodRepo;
   }
 
   @ModelAttribute
@@ -32,7 +36,8 @@ public class CalorieController {
   }
 
   @RequestMapping("/")
-  public String main() {
+  public String main(Model model) {
+    model.addAttribute("foods", foodRepo.findAll());
     return "index";
   }
 
@@ -41,5 +46,10 @@ public class CalorieController {
     return "edit";
   }
 
+  @PostMapping("/add")
+  public String add() {
+
+    return "index";
+  }
 
 }
