@@ -1,5 +1,6 @@
 package com.greenfox.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +17,16 @@ public class Food {
   private String description;
   private int calories;
 
+  public Food() {
+  }
+
+  public Food(Date date, String type, String description, int calories) {
+    this.date = date;
+    this.type = type;
+    this.description = description;
+    this.calories = calories;
+  }
+
   public Date getDate() {
     return date;
   }
@@ -30,5 +41,25 @@ public class Food {
 
   public int getCalories() {
     return calories;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setDate(Date date) {
+    this.date = date;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public void setCalories(int calories) {
+    this.calories = calories;
   }
 }

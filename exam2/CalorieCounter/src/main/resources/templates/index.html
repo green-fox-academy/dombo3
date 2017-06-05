@@ -7,8 +7,8 @@
 </head>
 <body>
   <h1 th:text="CalorieTable"></h1>
-  <p>Number of meals:</p>
-  <p>Total Calories:</p>
+  <p th:text="|Number of meals: ${numberOfFoods}|">Number of meals:</p>
+  <p th:text="|Total Calories: ${totalCalories}|">Total Calories:</p>
   <table border="1" style="width:500px">
     <thead>
       <tr>
@@ -27,12 +27,12 @@
         <td th:text="${food.description}">Scrumbled Eggs</td>
         <td th:text="${food.calories}">450</td>
         <td>
-          <form method="get">
+          <form method="post" th:action="@{/edit?index=} + ${food.id}">
             <input type="submit" value="Edit"/>
           </form>
         </td>
         <td>
-          <form method="post">
+          <form method="post" th:action="@{/delete?index=} + ${food.id}">
             <input type="submit" value="Delete"/>
           </form>
         </td>

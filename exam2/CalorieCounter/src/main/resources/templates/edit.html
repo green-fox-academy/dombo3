@@ -6,17 +6,17 @@
   <title>Edit meal</title>
 </head>
 <body>
-<form method="post">
+<form method="post" th:action="@{/save?index=} + (${editfood}? ${editfood.id})">
   <label>Date</label>
-  <input type="date"/>
+  <input type="text" name="date" th:value="${editfood}? ${editfood.date}"/>
   <label>Type</label>
   <select name="type">
-    <option th:each="foodtype : ${foodtypes}" value = "${foodtype.type}" th:text="${foodtype}">Breakfast</option>
+    <option th:each="foodtype : ${foodtypes}" th:text="${foodtype}">Breakfast</option>
   </select>
   <label>Description</label>
-  <input type="text"/>
+  <input type="text" name="description" th:value="${editfood}? ${editfood.description}"/>
   <label>Calories</label>
-  <input type="number"/>
+  <input type="text" name="calories" th:value="${editfood}? ${editfood.calories}"/>
   <input type="submit" value="Save"/>
 </form>
 <form method="get" th:action="@{/}">
