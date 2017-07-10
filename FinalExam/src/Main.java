@@ -8,10 +8,10 @@ public class Main {
     };
 
     int a2[] = new int[] {
-      0, 1, 2, 4
+      0, 1, 2, 3
     };
 
-    System.out.println(arrayChecker.isSameArray());
+    System.out.println(arrayChecker.isSameArray(a1, a2));
     System.out.println(arrayChecker.isSameArraySimple(a1, a2));
   }
 }
